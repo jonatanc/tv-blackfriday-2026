@@ -119,7 +119,8 @@ function changeEl(stats) {
 
 function externalText(ext) {
   if (!ext?.verified) return ext?.label ?? "Histórico externo não verificado";
-  return `${money(ext.lowest)} · ${ext.source}${ext.date ? ", " + new Date(ext.date + "T12:00:00-03:00").toLocaleDateString("pt-BR") : ""}`;
+  const date = ext.date ? `, ${ext.dateApprox ? "≈ " : ""}${new Date(ext.date + "T12:00:00-03:00").toLocaleDateString("pt-BR")}` : "";
+  return `${money(ext.lowest)} · ${ext.source}${date}${ext.note ? " ⓘ" : ""}`;
 }
 
 function renderCards() {
@@ -131,7 +132,7 @@ function renderCards() {
     const imgBox = h("div", { class: "img" }, img);
     if (m.image) imgBox.firstChild.addEventListener("error", () => imgBox.replaceChildren(initials));
     const extLink = m.external?.verified && safeUrl(m.external.sourceUrl)
-      ? h("a", { href: m.external.sourceUrl, target: "_blank", rel: "noopener noreferrer" }, externalText(m.external))
+      ? h("a", { href: m.external.sourceUrl, target: "_blank", rel: "noopener noreferrer", title: m.external.note ?? null }, externalText(m.external))
       : externalText(m.external);
     return h("article", { class: "card" },
       imgBox,

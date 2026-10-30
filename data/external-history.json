@@ -1,0 +1,36 @@
+{
+  "lg-c6": {
+    "verified": true,
+    "lowest": 5699.0,
+    "date": "2026-10-09",
+    "dateApprox": true,
+    "source": "Promobit (Fast Shop)",
+    "sourceUrl": "https://www.promobit.com.br/oferta/smart-tv-4k-lg-oled-c6-55-evo-ai-3098292/",
+    "note": "Oferta encerrada publicada 'há 3 semanas' em 30/10/2026 (data aproximada). Registro anterior: R$ 6.499 na Amazon em 04/09/2026, descrito como 'menor preço já registrado' pelo Tecnoblog (https://tecnoblog.net/achados/tv-lg-oled-c6-55-tem-a-melhor-oferta-registrada-em-ate-12x-sem-juros/).",
+    "checkedAt": "2026-10-30"
+  },
+  "sam-s85f": {
+    "verified": true,
+    "lowest": 3299.0,
+    "date": "2025-12-08",
+    "source": "Oficina da Net",
+    "sourceUrl": "https://www.oficinadanet.com.br/smarttvs/samsung-oled-s85f-55",
+    "note": "Loja Samsung com cupom, segundo nota de ofertas da Oficina da Net.",
+    "checkedAt": "2026-10-30"
+  },
+  "sam-s85h": {
+    "verified": false,
+    "label": "Histórico externo não verificado",
+    "note": "Nenhum comparador brasileiro com histórico datado encontrado em 30/10/2026.",
+    "checkedAt": "2026-10-30"
+  },
+  "tcl-c6k": {
+    "verified": true,
+    "lowest": 2058.77,
+    "date": "2025-10-09",
+    "source": "Oficina da Net",
+    "sourceUrl": "https://www.oficinadanet.com.br/smarttvs/tcl-qd-mini-led-c6k-55",
+    "note": "Valor muito abaixo dos demais registros (R$ 2.905–3.143). Pode ter sido erro de preço ou oferta relâmpago: a fonte não informa a loja.",
+    "checkedAt": "2026-10-30"
+  }
+}

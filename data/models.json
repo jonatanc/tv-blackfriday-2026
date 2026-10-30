@@ -1,0 +1,58 @@
+[
+  {
+    "id": "lg-c6",
+    "name": "LG OLED evo C6 55\" (2026)",
+    "brand": "LG",
+    "year": 2026,
+    "baseCode": "OLED55C6",
+    "fullCodes": ["OLED55C6PSA"],
+    "image": null,
+    "officialStore": "lg",
+    "officialUrl": null,
+    "searchTerms": ["OLED55C6PSA", "LG OLED evo C6 55"],
+    "codeSources": ["https://www.buscape.com.br/tv/smart-tv-oled-evo-55-lg-4k-hdr-oled55c6psa", "https://www.casasbahia.com.br/smart-tv-oled55c6psa-55-oled-4k-webos-lg/p/1582945349"],
+    "notes": "OLED55C6PUA (EUA) e OLED55C6PLA (Índia) são outras versões regionais: não aceitar."
+  },
+  {
+    "id": "sam-s85f",
+    "name": "Samsung OLED S85F 55\" (2025)",
+    "brand": "Samsung",
+    "year": 2025,
+    "baseCode": "55S85F",
+    "fullCodes": ["QN55S85FAGXZD"],
+    "image": "https://www.oficinadanet.com.br/media/obj_item/2246/381/s85f.jpg",
+    "officialStore": "samsung",
+    "officialUrl": null,
+    "searchTerms": ["QN55S85FAGXZD", "Samsung OLED S85F 55"],
+    "codeSources": ["https://www.oficinadanet.com.br/smarttvs/samsung-oled-s85f-55", "https://www.buscape.com.br/tv/smart-tv-oled-55-samsung-4k-55s85fagxzd"],
+    "notes": "Não confundir com S85H (2026) nem com S90F."
+  },
+  {
+    "id": "sam-s85h",
+    "name": "Samsung OLED S85H 55\" (2026)",
+    "brand": "Samsung",
+    "year": 2026,
+    "baseCode": "55S85H",
+    "fullCodes": ["QN55S85HAEXZD"],
+    "image": null,
+    "officialStore": "samsung",
+    "officialUrl": null,
+    "searchTerms": ["QN55S85HAEXZD", "Samsung OLED S85H 55"],
+    "codeSources": ["https://shop.samsung.com/br/tv-e-audio/tv/oled-4k"],
+    "notes": "Loja Samsung BR vende como 'Vision AI TV 55\" OLED 4K S85H 26/2027'. QN55S85HAEXZA (EUA), QE55S85H (Europa) não são aceitos. Combos com soundbar são descartados (preço não comparável)."
+  },
+  {
+    "id": "tcl-c6k",
+    "name": "TCL C6K QD-Mini LED 55\" (2025)",
+    "brand": "TCL",
+    "year": 2025,
+    "baseCode": "55C6K",
+    "fullCodes": ["55C6K"],
+    "image": "https://www.oficinadanet.com.br/media/obj_item/2139/381/tclc6k55.jpg",
+    "officialStore": "tcl",
+    "officialUrl": null,
+    "searchTerms": ["TCL 55C6K", "TCL C6K 55 QD-Mini LED"],
+    "codeSources": ["https://www.oficinadanet.com.br/smarttvs/tcl-qd-mini-led-c6k-55", "https://www.buscape.com.br/tv/smart-tv-mini-led-55-tcl-4k-55c6k"],
+    "notes": "No Brasil o código é 55C6K sem sufixo. 55C6K Pro (2026) e 55C6KS são outros modelos: não aceitar."
+  }
+]
