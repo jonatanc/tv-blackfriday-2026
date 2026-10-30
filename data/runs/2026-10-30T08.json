@@ -1,0 +1,203 @@
+{
+  "runId": "2026-10-30T08",
+  "startedAt": "2026-10-30T12:11:06-03:00",
+  "finishedAt": "2026-10-30T12:25:00-03:00",
+  "period": "manhã",
+  "trigger": "scheduled",
+  "status": "failed",
+  "notes": "Lojas bloqueiam acesso automatizado (403/503); nenhuma oferta confirmada em página de produto. Preços vistos só em snippets de comparadores, não registrados.",
+  "checks": [
+    {
+      "modelId": "lg-c6",
+      "store": "amazon",
+      "status": "not_queryable",
+      "reason": "HTTP 503 ao consultar a Amazon; nenhuma página de produto lida"
+    },
+    {
+      "modelId": "lg-c6",
+      "store": "magalu",
+      "status": "not_queryable",
+      "reason": "HTTP 403 (bloqueio) em magazineluiza.com.br; só snippets de busca, sem página de produto"
+    },
+    {
+      "modelId": "lg-c6",
+      "store": "casasbahia",
+      "status": "not_queryable",
+      "reason": "HTTP 403 (bloqueio) em casasbahia.com.br"
+    },
+    {
+      "modelId": "lg-c6",
+      "store": "fastshop",
+      "status": "not_queryable",
+      "reason": "Busca na Fast Shop retornou 404; página de produto não encontrada/renderizada"
+    },
+    {
+      "modelId": "lg-c6",
+      "store": "kabum",
+      "status": "not_queryable",
+      "reason": "Página de busca da KaBuM! sem produtos renderizados (só filtros)"
+    },
+    {
+      "modelId": "lg-c6",
+      "store": "carrefour",
+      "status": "not_queryable",
+      "reason": "HTTP 403 (bloqueio) em carrefour.com.br"
+    },
+    {
+      "modelId": "lg-c6",
+      "store": "mercadolivre",
+      "status": "not_queryable",
+      "reason": "API do Mercado Livre respondeu 403 e a busca web não trouxe página de loja oficial legível"
+    },
+    {
+      "modelId": "lg-c6",
+      "store": "lg",
+      "status": "not_queryable",
+      "reason": "lg.com/br retornou 404 / sem preço renderizado"
+    },
+    {
+      "modelId": "sam-s85f",
+      "store": "amazon",
+      "status": "not_queryable",
+      "reason": "HTTP 503 ao consultar a Amazon; nenhuma página de produto lida"
+    },
+    {
+      "modelId": "sam-s85f",
+      "store": "magalu",
+      "status": "not_queryable",
+      "reason": "HTTP 403 (bloqueio) em magazineluiza.com.br; só snippets de busca, sem página de produto"
+    },
+    {
+      "modelId": "sam-s85f",
+      "store": "casasbahia",
+      "status": "not_queryable",
+      "reason": "HTTP 403 (bloqueio) em casasbahia.com.br"
+    },
+    {
+      "modelId": "sam-s85f",
+      "store": "fastshop",
+      "status": "not_queryable",
+      "reason": "Busca na Fast Shop retornou 404; página de produto não encontrada/renderizada"
+    },
+    {
+      "modelId": "sam-s85f",
+      "store": "kabum",
+      "status": "not_queryable",
+      "reason": "Página de busca da KaBuM! sem produtos renderizados (só filtros)"
+    },
+    {
+      "modelId": "sam-s85f",
+      "store": "carrefour",
+      "status": "not_queryable",
+      "reason": "HTTP 403 (bloqueio) em carrefour.com.br"
+    },
+    {
+      "modelId": "sam-s85f",
+      "store": "mercadolivre",
+      "status": "not_queryable",
+      "reason": "API do Mercado Livre respondeu 403 e a busca web não trouxe página de loja oficial legível"
+    },
+    {
+      "modelId": "sam-s85f",
+      "store": "samsung",
+      "status": "not_queryable",
+      "reason": "shop.samsung.com/br: listagem truncada, sem preço nem 55\" visível"
+    },
+    {
+      "modelId": "sam-s85h",
+      "store": "amazon",
+      "status": "not_queryable",
+      "reason": "HTTP 503 ao consultar a Amazon; nenhuma página de produto lida"
+    },
+    {
+      "modelId": "sam-s85h",
+      "store": "magalu",
+      "status": "not_queryable",
+      "reason": "HTTP 403 (bloqueio) em magazineluiza.com.br; só snippets de busca, sem página de produto"
+    },
+    {
+      "modelId": "sam-s85h",
+      "store": "casasbahia",
+      "status": "not_queryable",
+      "reason": "HTTP 403 (bloqueio) em casasbahia.com.br"
+    },
+    {
+      "modelId": "sam-s85h",
+      "store": "fastshop",
+      "status": "not_queryable",
+      "reason": "Busca na Fast Shop retornou 404; página de produto não encontrada/renderizada"
+    },
+    {
+      "modelId": "sam-s85h",
+      "store": "kabum",
+      "status": "not_queryable",
+      "reason": "Página de busca da KaBuM! sem produtos renderizados (só filtros)"
+    },
+    {
+      "modelId": "sam-s85h",
+      "store": "carrefour",
+      "status": "not_queryable",
+      "reason": "HTTP 403 (bloqueio) em carrefour.com.br"
+    },
+    {
+      "modelId": "sam-s85h",
+      "store": "mercadolivre",
+      "status": "not_queryable",
+      "reason": "API do Mercado Livre respondeu 403 e a busca web não trouxe página de loja oficial legível"
+    },
+    {
+      "modelId": "sam-s85h",
+      "store": "samsung",
+      "status": "not_queryable",
+      "reason": "shop.samsung.com/br: listagem truncada, sem preço nem 55\" visível"
+    },
+    {
+      "modelId": "tcl-c6k",
+      "store": "amazon",
+      "status": "not_queryable",
+      "reason": "HTTP 503 ao consultar a Amazon; nenhuma página de produto lida"
+    },
+    {
+      "modelId": "tcl-c6k",
+      "store": "magalu",
+      "status": "not_queryable",
+      "reason": "HTTP 403 (bloqueio) em magazineluiza.com.br; só snippets de busca, sem página de produto"
+    },
+    {
+      "modelId": "tcl-c6k",
+      "store": "casasbahia",
+      "status": "not_queryable",
+      "reason": "HTTP 403 (bloqueio) em casasbahia.com.br"
+    },
+    {
+      "modelId": "tcl-c6k",
+      "store": "fastshop",
+      "status": "not_queryable",
+      "reason": "Busca na Fast Shop retornou 404; página de produto não encontrada/renderizada"
+    },
+    {
+      "modelId": "tcl-c6k",
+      "store": "kabum",
+      "status": "not_queryable",
+      "reason": "Página de busca da KaBuM! sem produtos renderizados (só filtros)"
+    },
+    {
+      "modelId": "tcl-c6k",
+      "store": "carrefour",
+      "status": "not_queryable",
+      "reason": "HTTP 403 (bloqueio) em carrefour.com.br"
+    },
+    {
+      "modelId": "tcl-c6k",
+      "store": "mercadolivre",
+      "status": "not_queryable",
+      "reason": "API do Mercado Livre respondeu 403 e a busca web não trouxe página de loja oficial legível"
+    },
+    {
+      "modelId": "tcl-c6k",
+      "store": "tcl",
+      "status": "not_queryable",
+      "reason": "tcl.com/br sem página de produto com preço renderizado"
+    }
+  ]
+}

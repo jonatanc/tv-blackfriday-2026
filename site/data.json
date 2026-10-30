@@ -1,6 +1,11 @@
 {
-  "generatedAt": "2026-10-30T14:50:08.751Z",
-  "lastRun": null,
+  "generatedAt": "2026-10-30T15:11:54.488Z",
+  "lastRun": {
+    "runId": "2026-10-30T08",
+    "status": "failed",
+    "finishedAt": "2026-10-30T12:25:00-03:00",
+    "period": "manhã"
+  },
   "nextRuns": [
     "2026-10-30T20:00:00-03:00",
     "2026-10-31T08:00:00-03:00"
@@ -225,5 +230,14 @@
     "tcl-c6k"
   ],
   "alerts": [],
-  "runsLog": []
+  "runsLog": [
+    {
+      "runId": "2026-10-30T08",
+      "status": "failed",
+      "trigger": "scheduled",
+      "okCount": 0,
+      "notQueryable": 32,
+      "notes": "Lojas bloqueiam acesso automatizado (403/503); nenhuma oferta confirmada em página de produto. Preços vistos só em snippets de comparadores, não registrados."
+    }
+  ]
 }
