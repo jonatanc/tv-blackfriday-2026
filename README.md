@@ -6,7 +6,7 @@ Monitora LG OLED evo C6 (OLED55C6PSA), Samsung OLED S85F (QN55S85FAGXZD), Samsun
 
 ## Como funciona
 
-- Uma **rotina do Claude na nuvem** roda às 08h e 20h BRT (cron `0 11,23 * * *` UTC) e segue [`ROUTINE_PROMPT.md`](ROUTINE_PROMPT.md).
+- Uma **tarefa agendada do Claude no PC do usuário** roda às 08h e 20h e segue [`ROUTINE_PROMPT.md`](ROUTINE_PROMPT.md). Ela lê as lojas pelo Chrome real, com a extensão Claude in Chrome, e publica com `scripts/publish.sh`. A rotina na nuvem foi desativada porque as lojas bloqueiam IPs de datacenter (403/503).
 - Cada execução grava um snapshot em `data/runs/<runId>.json`. O repositório é o banco de dados, e o git guarda o histórico.
 - `scripts/aggregate.mjs` calcula estatísticas, ranking e alertas e gera `site/data.json`. A lógica fica em `scripts/lib/` e é coberta por testes.
 - Cada push em `site/` publica o GitHub Pages ([pages.yml](.github/workflows/pages.yml)).

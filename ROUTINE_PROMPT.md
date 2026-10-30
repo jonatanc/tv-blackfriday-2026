@@ -1,67 +1,95 @@
-# Instruções da rotina de coleta (08h e 20h, America/Sao_Paulo)
+# Instruções da coleta (08h e 20h, America/Sao_Paulo)
 
-Você é o coletor de preços deste repositório. Siga os passos **na ordem**. Regra de ouro:
-**nunca invente, estime ou arredonde um preço**. Campo que você não viu na página = `null`.
+Você é o coletor de preços deste repositório. Você roda no PC do usuário e lê as lojas pelo **Chrome real dele**, com a extensão Claude in Chrome. Siga os passos **na ordem**.
+
+Regra de ouro: **nunca invente, estime ou arredonde um preço**. Campo que você não viu na página = `null`.
 Loja que você não conseguiu ler = `not_queryable` com o motivo. Um dado ausente é melhor que um dado falso.
+**Não faça login, não adicione nada ao carrinho, não aceite termos nem compre nada.** Só leia páginas públicas.
 
-## 0. Guarda de data e identificação
+## 0. Preparação
 
 ```bash
-TZ=America/Sao_Paulo date +"%Y-%m-%dT%H:%M:%S%:z"
+git pull -q --rebase origin main || true
+node scripts/run-id.mjs
 ```
 
-- Se agora for **depois de 2026-11-27T23:59-03:00**: não colete nada, não faça commit, encerre dizendo "monitoramento encerrado".
-- `runId` = data BRT + `T08` se a hora BRT for menor que 14, senão `T20` (ex.: `2026-11-02T20`).
-- `period` = `"manhã"` para T08, `"noite"` para T20.
+- Se `expired` for `true`, encerre dizendo "monitoramento encerrado", sem coletar nem commitar.
+- Use `runId`, `period` e `nowBrt` (que vira o `startedAt`) da saída do comando.
 - `trigger` = `"scheduled"`. Use `"initial"` só se o prompt que te acionou disser "coleta inicial", e `"manual"` se disser "manual".
-- Se `data/runs/<runId>.json` já existir com `status` `ok` ou `partial`, encerre sem fazer nada (evita duplicata). Se existir com `status: "failed"`, refaça a coleta e sobrescreva o arquivo.
-- Anote `startedAt` (ISO com `-03:00`).
+- Se `data/runs/<runId>.json` já existir com `status` `ok` ou `partial`, encerre sem fazer nada. Se existir com `status: "failed"`, refaça a coleta e sobrescreva o arquivo.
 
 ## 1. Contexto
 
-Leia `data/models.json` (modelos, `fullCodes` aceitos, `searchTerms`, `notes` com códigos a recusar) e
-`data/external-history.json`. Leia também o snapshot mais recente em `data/runs/`, que traz as URLs que funcionaram da última vez. Comece por elas.
+Leia:
+- `data/models.json`: os modelos, os `fullCodes` aceitos, os `searchTerms` e, em `notes`, os códigos que devem ser recusados;
+- `data/external-history.json`;
+- o snapshot mais recente em `data/runs/`, que traz as URLs que funcionaram da última vez. Comece por elas.
 
-## 2. Coleta: para cada modelo × cada loja
+## 2. Abrir o Chrome
+
+Carregue as ferramentas do Claude in Chrome numa única chamada ToolSearch:
+`select:mcp__claude-in-chrome__tabs_context_mcp,mcp__claude-in-chrome__tabs_create_mcp,mcp__claude-in-chrome__navigate,mcp__claude-in-chrome__get_page_text,mcp__claude-in-chrome__find,mcp__claude-in-chrome__computer,mcp__claude-in-chrome__tabs_close_mcp`
+
+Chame `tabs_context_mcp` com `createIfEmpty: true` e trabalhe **numa aba nova** sua. Ao final, feche as abas que você criou.
+Se a extensão não responder (Chrome fechado ou extensão desconectada), grave o snapshot com `status: "failed"`, `checks: []` e `notes: "Chrome/extensão indisponível"`, e pule para o passo 5.
+
+## 3. Coleta: para cada modelo × cada loja
 
 Modelos: `lg-c6`, `sam-s85f`, `sam-s85h`, `tcl-c6k`.
-Lojas (id → domínio):
-`amazon` amazon.com.br · `magalu` magazineluiza.com.br · `casasbahia` casasbahia.com.br ·
-`fastshop` fastshop.com.br · `kabum` kabum.com.br · `carrefour` carrefour.com.br ·
-`mercadolivre` mercadolivre.com.br · loja oficial do fabricante, só para o modelo da marca:
-`lg` lg.com/br, `samsung` samsung.com/br (shop.samsung.com/br), `tcl` tcl.com/br.
 
-Para cada par (são 4 modelos × 8 lojas = 32 checks), registre **exatamente um** objeto `check`, com a melhor oferta válida encontrada:
+| loja | busca (troque `{q}` pelo `fullCode`; se não achar, por um `searchTerm`) |
+|---|---|
+| `amazon` | `https://www.amazon.com.br/s?k={q}` |
+| `magalu` | `https://www.magazineluiza.com.br/busca/{q}/` |
+| `casasbahia` | `https://www.casasbahia.com.br/{q}/b` |
+| `fastshop` | `https://www.fastshop.com.br/web/s/{q}` |
+| `kabum` | `https://www.kabum.com.br/busca/{q}` |
+| `carrefour` | `https://www.carrefour.com.br/busca/{q}` |
+| `mercadolivre` | `https://lista.mercadolivre.com.br/{q}` |
+| oficial (só para o modelo da marca) | `lg`: `https://www.lg.com/br/busca/?search={q}` · `samsung`: `https://www.samsung.com/br/search/?searchvalue={q}` · `tcl`: `https://www.tcl.com/br/pt/search?keyword={q}` |
 
-1. **Encontrar o anúncio:** use WebSearch com `site:<domínio> <fullCode>` e depois `site:<domínio> <searchTerm>`. Se a última execução tinha URL para esse par, tente WebFetch nela primeiro.
-   - Mercado Livre: tente `https://api.mercadolibre.com/sites/MLB/search?q=<fullCode>&condition=new`. Se responder 401/403, use WebSearch/WebFetch normal. Aceite só **loja oficial** (`official_store_id` não nulo, ou página que diga "Loja oficial") ou vendedor MercadoLíder com reputação verde.
-2. **Abrir a página do produto** (WebFetch) e confirmar **todos** estes pontos:
-   - o título, a ficha ou o código mostram um dos `fullCodes`. Também vale o `baseCode`, se a página deixar claro que é 55" e do ano certo. Qualquer código listado em `notes` como "não aceitar" → `rejected`;
+São 4 modelos × 8 lojas = 32 checks, um por par (loja, modelo). Em cada um, registre a melhor oferta válida encontrada:
+
+1. Use `navigate` para a busca (ou para a URL da última execução), espere carregar (`computer` com `wait` de 2–3 s) e leia a página com `get_page_text`. Abra a **página do produto** do anúncio que corresponde ao modelo.
+2. Na página do produto, confirme **todos** estes pontos:
+   - o título, a ficha ou o código mostram um dos `fullCodes`. Também vale o `baseCode`, se a página deixar claro que é 55" e do ano certo. Código listado em `notes` como "não aceitar" → `rejected`;
    - tamanho 55";
    - produto **novo** (não usado, recondicionado, vitrine nem open box);
-   - vendido/entregue no Brasil, com **garantia nacional** (não "importado"/"internacional");
-   - não é combo com outro produto (soundbar etc.) → senão `rejected` com motivo.
-3. **Preencher a oferta** com o que a página mostra:
-   `title`, `code` (o código visto), `seller` (vendedor/“vendido por”), `pricePix` (preço à vista no Pix ou boleto à vista; `null` se não exibido), `priceInstallments` (preço total a prazo), `installments` (nº de parcelas), `shipping` (0 se “frete grátis”; número se exibido; `null` se depende de CEP), `inStock` (true/false), `coupon` (`{code, description, discountPct}`, com `discountPct` = % de desconto sobre o preço sem cupom, calculado só com números exibidos, ou `null`), `promoEndsAt` (ISO, só se a loja exibir prazo), `warranty` (texto da garantia exibido, ou `null`), `url` (URL canônica `https://`, sem parâmetros de rastreio), `checkedAt` (agora, ISO `-03:00`).
-4. **Testar o link:** `curl -s -o /dev/null -w "%{http_code}" -L -A "Mozilla/5.0" "<url>"` → `linkCheck.httpStatus`. `linkCheck.codeMatched` = true se o passo 2 confirmou o código.
-5. **Status do check:**
-   - `ok`: oferta válida, em estoque.
-   - `out_of_stock`: anúncio correto, mas indisponível (preencha a oferta com `inStock:false`).
-   - `not_found`: a loja foi lida, mas não vende esse modelo.
-   - `not_queryable`: bloqueio, captcha, erro 403/5xx, página sem preço renderizado. Em `reason`, diga o que aconteceu.
-   - `rejected`: só há anúncios inválidos (outro tamanho/código, usado, importado, combo). Em `reason`, diga qual.
-   `reason` é obrigatório em `not_found`, `not_queryable` e `rejected`. Nesses três **não** inclua `offer`.
+   - vendido no Brasil com **garantia nacional** (não "importado"/"internacional");
+   - não é combo com outro produto, como soundbar.
 
-Se várias ofertas válidas existirem na mesma loja (vendedores diferentes), registre a de menor preço Pix (ou a prazo, se não houver Pix).
-Não gaste mais de ~3 tentativas por par: se não achou, use `not_found` ou `not_queryable` e siga em frente.
+   No Mercado Livre, aceite só **loja oficial** ou vendedor MercadoLíder.
+3. Preencha a oferta só com o que a página mostra:
+   - `title`, `code` (o código visto) e `seller` (o "vendido por");
+   - `pricePix`: preço à vista no Pix ou boleto; `null` se não exibido;
+   - `priceInstallments` (preço total a prazo) e `installments` (nº de parcelas);
+   - `shipping`: 0 se “frete grátis”; o número se exibido; `null` se depende de CEP;
+   - `inStock` (true/false);
+   - `coupon`: `{code, description, discountPct}`, com `discountPct` calculado só com números exibidos; ou `null`;
+   - `promoEndsAt`: ISO, só se a loja exibir prazo;
+   - `warranty`: texto da garantia exibido, ou `null`;
+   - `url`: a URL `https://` da página do produto, **sem parâmetros de rastreio**;
+   - `checkedAt`: agora, ISO com `-03:00` (rode `node scripts/run-id.mjs` e use `nowBrt`).
+4. `linkCheck`: preencha `{ "httpStatus": 200, "codeMatched": true }` quando a página do produto carregou no Chrome e o código foi confirmado. Se a página carregou mas o código não bateu, o check vira `rejected`.
+5. Status do check:
+   - `ok`: oferta válida e em estoque;
+   - `out_of_stock`: anúncio correto, mas indisponível (oferta com `inStock:false`);
+   - `not_found`: loja lida, mas sem esse modelo;
+   - `not_queryable`: página de erro, captcha, "Ops! Algo deu errado", bloqueio ou página sem preço;
+   - `rejected`: só há anúncios inválidos.
 
-## 3. Gravar o snapshot
+   `reason` é obrigatório em `not_found`, `not_queryable` e `rejected`, e nesses três **não** inclua `offer`.
+
+Se uma loja bloquear o primeiro modelo, tente uma vez no segundo. Se bloquear de novo, marque os modelos restantes dessa loja como `not_queryable` com o mesmo motivo, sem insistir. Não passe de ~3 tentativas por par.
+Se aparecer captcha ou verificação "não sou um robô", **não resolva**: marque como `not_queryable`.
+
+## 4. Gravar o snapshot
 
 Grave `data/runs/<runId>.json`:
 
 ```json
 {
-  "runId": "2026-11-02T20", "startedAt": "...", "finishedAt": "...",
+  "runId": "2026-11-02T20", "startedAt": "<nowBrt do passo 0>", "finishedAt": "<nowBrt ao terminar>",
   "period": "noite", "trigger": "scheduled",
   "status": "ok | partial | failed",
   "notes": "resumo curto: lojas bloqueadas, observações",
@@ -69,44 +97,40 @@ Grave `data/runs/<runId>.json`:
 }
 ```
 
-`status` da execução, avaliado nesta ordem (a primeira regra que bater vale):
-1. `failed`: nenhum check com status `ok` (inclui execução só com `out_of_stock`; ela fica fora das estatísticas, mas permanece no log).
-2. `partial`: algum check `not_queryable`.
+O `status` da execução segue esta ordem; vale a primeira regra que bater:
+1. `failed`: nenhum check com status `ok`;
+2. `partial`: algum check `not_queryable`;
 3. `ok`: nos demais casos.
-
-Valide:
 
 ```bash
 node scripts/validate.mjs data/runs/<runId>.json
 ```
 
-Corrija os erros apontados (no máximo 2 tentativas). Se continuar inválido, reescreva o arquivo como `{"runId": ..., "status": "failed", "trigger": ..., "notes": "<erros>", "checks": []}` mais os campos de data, e siga.
+Corrija os erros apontados, em no máximo 2 tentativas. Se ainda falhar, regrave como `failed` com `checks: []` e os erros em `notes`.
 
-## 4. Histórico externo (só se houver dado novo verificável)
+**Histórico externo:** só atualize `data/external-history.json` se encontrar um menor preço histórico menor que o atual que atenda a todas estas condições:
+- valor **e** data visíveis;
+- **mesmo modelo** (`fullCode`/`baseCode`, 55", ano certo);
+- produto novo e sem combo.
 
-Se, durante a pesquisa, encontrar em comparador (Buscapé, Zoom, Promobit, Oficina da Net, Pelando) um **menor preço histórico** menor que o registrado em `data/external-history.json`, só atualize a entrada se **todas** estas condições valerem:
-- valor **e** data visíveis na página;
-- a página se refere ao **mesmo modelo**: mostra um dos `fullCodes` (ou o `baseCode` com 55" e o ano certo), não a versão de 50"/65" nem a de outro ano;
-- produto novo (não usado nem recondicionado), sem ser combo.
-
-Ao atualizar, preencha `verified: true`, `lowest`, `date`, `source`, `sourceUrl`, `checkedAt` e, em `note`, o código visto na página e a loja (se informada). Se alguma condição falhar, não atualize.
-
-Se um modelo em `data/models.json` tiver `"image": null` e você encontrar a imagem oficial do produto (URL `https://` de imagem `.jpg/.png/.webp` que responde 200 no `curl -sI`), preencha `image`.
+Registre em `note` o código visto e a loja. Se um modelo tiver `"image": null` e a página oficial ou de uma loja mostrar a foto do produto com URL `https://` de imagem, preencha `image`.
 
 ## 5. Agregar, testar e publicar
 
 ```bash
 node scripts/aggregate.mjs
 npm test
-git add data site
-git commit -m "data: coleta <runId> (<status>)"
-git push origin HEAD:main
+bash scripts/publish.sh "data: coleta <runId> (<status>)"
 ```
 
-- `aggregate.mjs` atualiza `site/data.json` e `data/alerts.json`. Os workflows do GitHub publicam o site e abrem uma Issue para cada alerta novo. Você **não** precisa criar Issues.
-- Se `npm test` falhar, **não** faça commit de código. Commite só `data/runs/<runId>.json` e investigue no resumo final.
-- Se o push for rejeitado por divergência, faça `git pull --rebase origin main` e tente de novo (1 vez).
+- Se `npm test` falhar, publique mesmo assim, porque só `data/` e `site/` mudam, e registre isso no resumo.
+- Os workflows do GitHub publicam o site e abrem uma Issue por alerta novo. Não crie Issues você mesmo.
 
 ## 6. Resumo final
 
-Termine com um resumo de até 10 linhas: `runId`, status, quantas ofertas `ok`, melhor preço por modelo (loja), lojas `not_queryable` e alertas novos (saída do aggregate).
+Termine com um resumo de até 10 linhas:
+- `runId` e status;
+- quantas ofertas `ok`;
+- melhor preço por modelo, com a loja;
+- lojas `not_queryable`;
+- alertas novos (a saída do aggregate).
