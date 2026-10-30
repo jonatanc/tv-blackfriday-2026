@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "key": "new_low|sam-s85h|magalu|5482.28",
+    "type": "new_low",
+    "modelId": "sam-s85h",
+    "store": "magalu",
+    "previousPrice": 5616.54,
+    "newPrice": 5482.28,
+    "savingsPct": 2.4,
+    "at": "2026-10-30T20:13:30-03:00",
+    "url": "https://www.magazineluiza.com.br/samsung-vision-ai-tv-55-oled-4k-s85h-2027/p/fhf5f6je3k/et/elit/",
+    "note": "Novo menor preço registrado"
+  }
+]
