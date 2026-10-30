@@ -1,0 +1,31 @@
+name: Alertas por Issue
+on:
+  push:
+    branches: [main]
+    paths: ["data/alerts.json"]
+permissions:
+  contents: read
+  issues: write
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Abrir uma Issue por alerta novo
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git show HEAD~1:data/alerts.json > /tmp/old.json 2>/dev/null || echo "[]" > /tmp/old.json
+          node scripts/notify-alerts.mjs /tmp/old.json data/alerts.json data/models.json > /tmp/issues.json
+          count=$(jq length /tmp/issues.json)
+          echo "Alertas novos: $count"
+          for i in $(seq 0 $((count - 1))); do
+            gh issue create --repo "$GITHUB_REPOSITORY" \
+              --title "$(jq -r ".[$i].title" /tmp/issues.json)" \
+              --body "$(jq -r ".[$i].body" /tmp/issues.json)"
+          done

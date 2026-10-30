@@ -68,3 +68,25 @@ test("primeira execução não gera new_low nem drop", () => {
   const run = makeRun("2026-11-02T08", [offer("amazon", 9000, "2026-11-02T08:05:00-03:00")]);
   assert.deepEqual(detectAlerts({ runs: [run], run, models, external: NO_EXT, existing: [] }), []);
 });
+
+import { diffAlerts, issueFor } from "../scripts/lib/alerts.mjs";
+
+test("diffAlerts retorna só alertas com chave nova", () => {
+  const a = { key: "drop|lg-c6|amazon|9400" };
+  const b = { key: "new_low|lg-c6|amazon|9400" };
+  assert.deepEqual(diffAlerts([a], [a, b]), [b]);
+  assert.deepEqual(diffAlerts([], []), []);
+});
+
+test("issueFor monta título e corpo com todos os campos", () => {
+  const alert = {
+    key: "drop|lg-c6|amazon|9400", type: "drop", modelId: "lg-c6", store: "amazon",
+    previousPrice: 10000, newPrice: 9400, savingsPct: 6, at: "2026-11-02T08:05:00-03:00",
+    url: "https://www.amazon.com.br/p/oled55c6", note: "Queda de 6%",
+  };
+  const { title, body } = issueFor(alert, [{ id: "lg-c6", name: "LG OLED evo C6 55\"" }]);
+  assert.equal(title, "[Alerta] LG OLED evo C6 55\" — Queda de 5% ou mais — R$ 9.400,00 na amazon");
+  for (const s of ["R$ 10.000,00", "R$ 9.400,00", "6%", "amazon", "02/11/2026 08:05", "https://www.amazon.com.br/p/oled55c6"]) {
+    assert.ok(body.includes(s), `corpo sem ${s}`);
+  }
+});

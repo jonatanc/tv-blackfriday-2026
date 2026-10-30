@@ -51,3 +51,42 @@ export function detectAlerts({ runs, run, models, external, existing }) {
   }
   return out;
 }
+
+export const ALERT_LABELS = {
+  new_low: "Novo menor preço registrado",
+  drop: "Queda de 5% ou mais",
+  below_external: "No menor preço histórico externo",
+  coupon: "Cupom com desconto relevante",
+  promo_deadline: "Promoção com prazo de encerramento",
+};
+
+/** Alertas de `next` cuja chave não existe em `prev`. */
+export function diffAlerts(prev, next) {
+  const seen = new Set(prev.map((a) => a.key));
+  return next.filter((a) => !seen.has(a.key));
+}
+
+const brl = (v) =>
+  v == null ? "—" : new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(v).replace(/ /g, " ");
+const brt = (iso) =>
+  new Date(iso).toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo", dateStyle: "short", timeStyle: "short" }).replace(",", "");
+
+/** Título e corpo (markdown) da Issue do GitHub para um alerta. */
+export function issueFor(alert, models) {
+  const name = models.find((m) => m.id === alert.modelId)?.name ?? alert.modelId;
+  const label = ALERT_LABELS[alert.type] ?? alert.type;
+  const title = `[Alerta] ${name} — ${label} — ${brl(alert.newPrice)} na ${alert.store}`;
+  const body = [
+    `**Modelo:** ${name}`,
+    `**Tipo:** ${label}`,
+    `**Preço anterior:** ${brl(alert.previousPrice)}`,
+    `**Preço novo:** ${brl(alert.newPrice)}`,
+    `**Economia:** ${alert.savingsPct == null ? "—" : `${alert.savingsPct}%`}`,
+    `**Loja:** ${alert.store}`,
+    `**Horário:** ${brt(alert.at)} (Brasília)`,
+    `**Link:** ${alert.url}`,
+    alert.note ? `\n${alert.note}` : "",
+    `\n<sub>chave: \`${alert.key}\`</sub>`,
+  ].join("\n");
+  return { title, body };
+}
