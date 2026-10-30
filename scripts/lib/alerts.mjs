@@ -11,7 +11,6 @@ const savings = (from, to) => (from ? round(((from - to) / from) * 100, 1) : nul
 export function detectAlerts({ runs, run, models, external, existing }) {
   const seen = new Set(existing.map((a) => a.key));
   const earlier = validRuns(runs).filter((r) => r.runId < run.runId);
-  const prevRun = earlier.at(-1);
   const out = [];
 
   const push = (type, modelId, o, previousPrice, note) => {
@@ -32,7 +31,8 @@ export function detectAlerts({ runs, run, models, external, existing }) {
     const priorMin = priorPrices.length ? Math.min(...priorPrices) : null;
     if (priorMin != null && cur.price < priorMin) push("new_low", id, cur, priorMin, "Novo menor preço registrado");
 
-    const prev = prevRun ? bestOffer(prevRun, id) : null;
+    // Compara com a última execução em que o modelo teve oferta (como o card faz).
+    const prev = earlier.map((r) => bestOffer(r, id)).filter(Boolean).at(-1) ?? null;
     if (prev && savings(prev.price, cur.price) >= DROP_PCT) {
       push("drop", id, cur, prev.price, `Queda de ${savings(prev.price, cur.price)}% desde a consulta anterior`);
     }
@@ -85,7 +85,8 @@ export function issueFor(alert, models) {
     `**Loja:** ${alert.store}`,
     `**Horário:** ${brt(alert.at)} (Brasília)`,
     `**Link:** ${alert.url}`,
-    alert.note ? `\n${alert.note}` : "",
+    // Texto vindo de páginas da web: um zero-width space depois do @ evita notificar usuários do GitHub.
+    alert.note ? `\n${alert.note.replace(/@/g, "@​")}` : "",
     `\n<sub>chave: \`${alert.key}\`</sub>`,
   ].join("\n");
   return { title, body };

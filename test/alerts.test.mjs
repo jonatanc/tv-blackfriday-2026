@@ -90,3 +90,25 @@ test("issueFor monta título e corpo com todos os campos", () => {
     assert.ok(body.includes(s), `corpo sem ${s}`);
   }
 });
+
+test("drop compara com a última execução em que o modelo teve oferta", () => {
+  const runs = [
+    makeRun("2026-11-01T08", [offer("amazon", 10000, "2026-11-01T08:05:00-03:00")]),
+    makeRun("2026-11-01T20", [{ modelId: "lg-c6", store: "amazon", status: "not_queryable", reason: "captcha" }]),
+  ];
+  const run = makeRun("2026-11-02T08", [offer("amazon", 9400, "2026-11-02T08:05:00-03:00")]);
+  runs.push(run);
+  const drop = detectAlerts({ runs, run, models, external: NO_EXT, existing: [] }).find((a) => a.type === "drop");
+  assert.equal(drop?.previousPrice, 10000);
+});
+
+test("issueFor neutraliza @menções vindas de textos da web", () => {
+  const alert = {
+    key: "coupon|lg-c6|amazon|9000", type: "coupon", modelId: "lg-c6", store: "amazon",
+    previousPrice: null, newPrice: 9000, savingsPct: null, at: "2026-11-02T08:05:00-03:00",
+    url: "https://www.amazon.com.br/p/x", note: "Cupom @fulano: 5% off",
+  };
+  const { body } = issueFor(alert, []);
+  assert.ok(!/@fulano/.test(body));
+  assert.ok(body.includes("fulano"));
+});

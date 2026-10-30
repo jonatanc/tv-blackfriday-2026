@@ -1,6 +1,6 @@
 // Dashboard: lê data.json (gerado por scripts/aggregate.mjs) e renderiza tudo.
 // Todo texto vindo dos dados entra via textContent.
-"use strict";
+import { freshView } from "./freshness.mjs";
 
 const TZ = "America/Sao_Paulo";
 const REFRESH_MS = 10 * 60 * 1000;
@@ -59,7 +59,7 @@ async function load() {
   try {
     const res = await fetch(`data.json?t=${Date.now()}`, { cache: "no-store" });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    DATA = await res.json();
+    DATA = freshView(await res.json(), new Date());
     render();
   } catch (e) {
     document.getElementById("meta").replaceChildren(h("span", {}, `Não foi possível carregar os dados (${e.message}). Nova tentativa em 10 minutos.`));
@@ -104,7 +104,8 @@ function renderHero() {
     h("div", {},
       h("div", { class: "label" }, "Mais barata agora"),
       h("div", { class: "name" }, m.name),
-      h("div", { class: "note" }, `${STORE_NAMES[c.store] ?? c.store} · consultado em ${dt(c.checkedAt)}${c.usedInstallments ? " · preço parcelado" : " · à vista no Pix"}`)),
+      h("div", { class: "note" }, `${STORE_NAMES[c.store] ?? c.store} · consultado em ${dt(c.checkedAt)}${c.usedInstallments ? " · preço parcelado" : " · à vista no Pix"}`),
+      c.stale ? h("span", { class: "badge stale" }, "⚠ Preço desatualizado: a última coleta tem mais de 36 h") : null),
     h("div", { class: "price" }, money(c.price)),
     offerLink(c.url),
   );

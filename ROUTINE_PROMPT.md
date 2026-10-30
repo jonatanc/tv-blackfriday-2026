@@ -14,7 +14,7 @@ TZ=America/Sao_Paulo date +"%Y-%m-%dT%H:%M:%S%:z"
 - `runId` = data BRT + `T08` se a hora BRT for menor que 14, senão `T20` (ex.: `2026-11-02T20`).
 - `period` = `"manhã"` para T08, `"noite"` para T20.
 - `trigger` = `"scheduled"`. Use `"initial"` só se o prompt que te acionou disser "coleta inicial", e `"manual"` se disser "manual".
-- Se `data/runs/<runId>.json` já existir, encerre sem fazer nada (evita duplicata).
+- Se `data/runs/<runId>.json` já existir com `status` `ok` ou `partial`, encerre sem fazer nada (evita duplicata). Se existir com `status: "failed"`, refaça a coleta e sobrescreva o arquivo.
 - Anote `startedAt` (ISO com `-03:00`).
 
 ## 1. Contexto
@@ -69,7 +69,10 @@ Grave `data/runs/<runId>.json`:
 }
 ```
 
-`status` da execução: `ok` se todas as 32 combinações foram tentadas e pelo menos 1 `ok`; `partial` se alguma loja ficou `not_queryable`; `failed` se nenhuma oferta foi coletada.
+`status` da execução, avaliado nesta ordem (a primeira regra que bater vale):
+1. `failed`: nenhum check com status `ok` (inclui execução só com `out_of_stock`; ela fica fora das estatísticas, mas permanece no log).
+2. `partial`: algum check `not_queryable`.
+3. `ok`: nos demais casos.
 
 Valide:
 
@@ -81,7 +84,12 @@ Corrija os erros apontados (no máximo 2 tentativas). Se continuar inválido, re
 
 ## 4. Histórico externo (só se houver dado novo verificável)
 
-Se, durante a pesquisa, encontrar em comparador (Buscapé, Zoom, Promobit, Oficina da Net, Pelando) um **menor preço histórico com valor e data visíveis** menor que o registrado em `data/external-history.json`, atualize a entrada (`verified: true`, `lowest`, `date`, `source`, `sourceUrl`, `note`, `checkedAt`). Sem data visível, não atualize.
+Se, durante a pesquisa, encontrar em comparador (Buscapé, Zoom, Promobit, Oficina da Net, Pelando) um **menor preço histórico** menor que o registrado em `data/external-history.json`, só atualize a entrada se **todas** estas condições valerem:
+- valor **e** data visíveis na página;
+- a página se refere ao **mesmo modelo**: mostra um dos `fullCodes` (ou o `baseCode` com 55" e o ano certo), não a versão de 50"/65" nem a de outro ano;
+- produto novo (não usado nem recondicionado), sem ser combo.
+
+Ao atualizar, preencha `verified: true`, `lowest`, `date`, `source`, `sourceUrl`, `checkedAt` e, em `note`, o código visto na página e a loja (se informada). Se alguma condição falhar, não atualize.
 
 Se um modelo em `data/models.json` tiver `"image": null` e você encontrar a imagem oficial do produto (URL `https://` de imagem `.jpg/.png/.webp` que responde 200 no `curl -sI`), preencha `image`.
 
