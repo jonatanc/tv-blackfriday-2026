@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Monitor TVs 55"</title>
+  <meta name="description" content="Monitoramento de preços de 4 TVs de 55 polegadas até a Black Friday 2026, com histórico, ranking de oportunidades e alertas.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='6' width='26' height='17' rx='2' fill='%232a78d6'/%3E%3Crect x='12' y='25' width='8' height='2' rx='1' fill='%232a78d6'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <h1>TVs 55" · Black Friday 2026</h1>
+      <p class="sub">Preços coletados às 08h e 20h (Brasília) em lojas brasileiras. Nada é estimado: quando não há preço confirmado, o campo fica vazio.</p>
+      <div class="meta" id="meta" aria-live="polite"></div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="hero" class="hero" aria-label="Mais barata agora"></section>
+
+    <section aria-labelledby="h-cards">
+      <h2 id="h-cards">As quatro TVs</h2>
+      <div id="cards" class="cards"></div>
+    </section>
+
+    <section aria-labelledby="h-rank">
+      <h2 id="h-rank">Ranking de oportunidades</h2>
+      <p class="note">Os indicadores avaliam o preço em relação ao histórico verificável, não a qualidade técnica da TV.</p>
+      <ol id="ranking" class="ranking"></ol>
+      <ul class="legend-status">
+        <li><span class="badge excellent">🟢 Excelente</span> preço igual ou abaixo da mínima histórica verificada</li>
+        <li><span class="badge good">🟡 Boa</span> até 5% acima da mínima</li>
+        <li><span class="badge wait">🔴 Aguardar</span> mais de 5% acima da mínima</li>
+        <li><span class="badge none">⚪ Sem histórico</span> ainda não há base para classificar</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="h-hist">
+      <h2 id="h-hist">Histórico de preços</h2>
+      <div class="filters" role="group" aria-label="Período">
+        <button type="button" data-range="7">7 dias</button>
+        <button type="button" data-range="15">15 dias</button>
+        <button type="button" data-range="30">30 dias</button>
+        <button type="button" data-range="all" aria-pressed="true">Tudo</button>
+      </div>
+
+      <figure class="chart-card">
+        <figcaption>Melhor preço do dia por TV</figcaption>
+        <div class="chart-box"><canvas id="chart-models" role="img" aria-label="Melhor preço diário de cada TV"></canvas></div>
+      </figure>
+
+      <figure class="chart-card">
+        <figcaption>
+          Comparação entre lojas —
+          <label class="sr-only" for="model-select">TV</label>
+          <select id="model-select"></select>
+        </figcaption>
+        <div id="model-stats" class="stat-row"></div>
+        <div class="chart-box"><canvas id="chart-stores" role="img" aria-label="Preço diário por loja da TV selecionada"></canvas></div>
+        <p class="note">Linhas tracejadas: mínima, média e máxima registradas pelo sistema no período. Pontos maiores com anel: nova mínima.</p>
+      </figure>
+
+      <div class="table-wrap">
+        <table id="stores-table">
+          <caption>Última consulta por loja da TV selecionada</caption>
+          <thead><tr><th>Loja</th><th>Status</th><th class="num">Pix</th><th class="num">Parcelado</th><th>Frete</th><th>Cupom</th><th>Garantia</th><th></th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-alerts">
+      <h2 id="h-alerts">Alertas</h2>
+      <ul id="alerts" class="alerts"></ul>
+    </section>
+
+    <section aria-labelledby="h-log">
+      <h2 id="h-log">Execuções</h2>
+      <div class="table-wrap">
+        <table id="runs-table">
+          <thead><tr><th>Execução</th><th>Status</th><th class="num">Ofertas</th><th class="num">Lojas não consultáveis</th><th>Notas</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <p>Coleta feita por agente automatizado, com leitura das páginas públicas das lojas e a API pública do Mercado Livre. Lojas que bloqueiam leitura automatizada aparecem como “não consultável”. Cupons exclusivos de app ou login não são capturados. Confira sempre o preço na loja antes de comprar.</p>
+    </footer>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
