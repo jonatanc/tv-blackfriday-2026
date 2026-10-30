@@ -1,0 +1,6 @@
+{
+  "name": "tv-blackfriday-2026",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node --test test/*.test.mjs" }
+}
