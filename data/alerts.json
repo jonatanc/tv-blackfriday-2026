@@ -10,5 +10,29 @@
     "at": "2026-10-30T20:13:30-03:00",
     "url": "https://www.magazineluiza.com.br/samsung-vision-ai-tv-55-oled-4k-s85h-2027/p/fhf5f6je3k/et/elit/",
     "note": "Novo menor preço registrado"
+  },
+  {
+    "key": "coupon|lg-c6|lg|6934.05",
+    "type": "coupon",
+    "modelId": "lg-c6",
+    "store": "lg",
+    "previousPrice": null,
+    "newPrice": 6934.05,
+    "savingsPct": null,
+    "at": "2026-10-31T09:40:44-03:00",
+    "url": "https://www.lg.com/br/tvs-e-soundbars/oled-evo/oled55c6psa/",
+    "note": "Cupom : Cupom de Boas-Vindas: 5% de desconto na primeira compra ao se inscrever como membro LG"
+  },
+  {
+    "key": "new_low|tcl-c6k|amazon|3060",
+    "type": "new_low",
+    "modelId": "tcl-c6k",
+    "store": "amazon",
+    "previousPrice": 3112.72,
+    "newPrice": 3060,
+    "savingsPct": 1.7,
+    "at": "2026-10-31T09:40:44-03:00",
+    "url": "https://www.amazon.com.br/dp/B0F7JZMVKF",
+    "note": "Novo menor preço registrado"
   }
 ]
