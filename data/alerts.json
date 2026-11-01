@@ -34,5 +34,41 @@
     "at": "2026-10-31T09:40:44-03:00",
     "url": "https://www.amazon.com.br/dp/B0F7JZMVKF",
     "note": "Novo menor preço registrado"
+  },
+  {
+    "key": "new_low|sam-s85f|amazon|5499.99",
+    "type": "new_low",
+    "modelId": "sam-s85f",
+    "store": "amazon",
+    "previousPrice": 5759.11,
+    "newPrice": 5499.99,
+    "savingsPct": 4.5,
+    "at": "2026-11-01T14:44:44-03:00",
+    "url": "https://www.amazon.com.br/dp/B0FKDXHGM6",
+    "note": "Novo menor preço registrado"
+  },
+  {
+    "key": "new_low|sam-s85h|magalu|5399.91",
+    "type": "new_low",
+    "modelId": "sam-s85h",
+    "store": "magalu",
+    "previousPrice": 5482.28,
+    "newPrice": 5399.91,
+    "savingsPct": 1.5,
+    "at": "2026-11-01T14:44:44-03:00",
+    "url": "https://www.magazineluiza.com.br/smart-tv-samsung-55-polegadas-4k-oled-s85h-vision-ai/p/ebb2gd7k91/et/elit/",
+    "note": "Novo menor preço registrado"
+  },
+  {
+    "key": "new_low|tcl-c6k|mercadolivre|3018.64",
+    "type": "new_low",
+    "modelId": "tcl-c6k",
+    "store": "mercadolivre",
+    "previousPrice": 3060,
+    "newPrice": 3018.64,
+    "savingsPct": 1.4,
+    "at": "2026-11-01T14:44:44-03:00",
+    "url": "https://www.mercadolivre.com.br/smart-tv-tcl-55-polegadas-qd-mini-led-4k-c6k-wifi-bluetooth-google-tv-4-hdmi-144hz-hdr10-55c6k/p/MLB48808732",
+    "note": "Novo menor preço registrado"
   }
 ]
