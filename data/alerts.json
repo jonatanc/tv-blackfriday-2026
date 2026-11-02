@@ -70,5 +70,53 @@
     "at": "2026-11-01T14:44:44-03:00",
     "url": "https://www.mercadolivre.com.br/smart-tv-tcl-55-polegadas-qd-mini-led-4k-c6k-wifi-bluetooth-google-tv-4-hdmi-144hz-hdr10-55c6k/p/MLB48808732",
     "note": "Novo menor preço registrado"
+  },
+  {
+    "key": "new_low|lg-c6|amazon|6459.05",
+    "type": "new_low",
+    "modelId": "lg-c6",
+    "store": "amazon",
+    "previousPrice": 6858.1,
+    "newPrice": 6459.05,
+    "savingsPct": 5.8,
+    "at": "2026-11-02T20:21:32-03:00",
+    "url": "https://www.amazon.com.br/dp/B0H4HKXMFH",
+    "note": "Novo menor preço registrado"
+  },
+  {
+    "key": "drop|lg-c6|amazon|6459.05",
+    "type": "drop",
+    "modelId": "lg-c6",
+    "store": "amazon",
+    "previousPrice": 6858.1,
+    "newPrice": 6459.05,
+    "savingsPct": 5.8,
+    "at": "2026-11-02T20:21:32-03:00",
+    "url": "https://www.amazon.com.br/dp/B0H4HKXMFH",
+    "note": "Queda de 5.8% desde a consulta anterior"
+  },
+  {
+    "key": "coupon|lg-c6|magalu|7219.05",
+    "type": "coupon",
+    "modelId": "lg-c6",
+    "store": "magalu",
+    "previousPrice": null,
+    "newPrice": 7219.05,
+    "savingsPct": null,
+    "at": "2026-11-02T20:21:32-03:00",
+    "url": "https://www.magazineluiza.com.br/smart-tv-55-lg-4k-uhd-oled-evo-ai-oled55c6psa-webos-26-2026/p/241766200/et/elit/",
+    "note": "Cupom LU300: R$ 300 OFF (cupom exibido na página do produto)"
+  },
+  {
+    "key": "new_low|tcl-c6k|magalu|2944.05",
+    "type": "new_low",
+    "modelId": "tcl-c6k",
+    "store": "magalu",
+    "previousPrice": 3018.64,
+    "newPrice": 2944.05,
+    "savingsPct": 2.5,
+    "at": "2026-11-02T20:21:32-03:00",
+    "url": "https://www.magazineluiza.com.br/smart-tv-55-tcl-4k-uhd-miniled-55c6k-120hz-google-tv-aipq-google-assistente-4-hdmi-2-usb/p/240162700/et/elit/",
+    "note": "Novo menor preço registrado"
   }
 ]
