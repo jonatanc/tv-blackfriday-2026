@@ -118,5 +118,41 @@
     "at": "2026-11-02T20:21:32-03:00",
     "url": "https://www.magazineluiza.com.br/smart-tv-55-tcl-4k-uhd-miniled-55c6k-120hz-google-tv-aipq-google-assistente-4-hdmi-2-usb/p/240162700/et/elit/",
     "note": "Novo menor preço registrado"
+  },
+  {
+    "key": "new_low|lg-c6|amazon|5959.9",
+    "type": "new_low",
+    "modelId": "lg-c6",
+    "store": "amazon",
+    "previousPrice": 6459.05,
+    "newPrice": 5959.9,
+    "savingsPct": 7.7,
+    "at": "2026-11-03T20:22:31-03:00",
+    "url": "https://www.amazon.com.br/dp/B0H4HKXMFH",
+    "note": "Novo menor preço registrado"
+  },
+  {
+    "key": "drop|lg-c6|amazon|5959.9",
+    "type": "drop",
+    "modelId": "lg-c6",
+    "store": "amazon",
+    "previousPrice": 6459.05,
+    "newPrice": 5959.9,
+    "savingsPct": 7.7,
+    "at": "2026-11-03T20:22:31-03:00",
+    "url": "https://www.amazon.com.br/dp/B0H4HKXMFH",
+    "note": "Queda de 7.7% desde a consulta anterior"
+  },
+  {
+    "key": "new_low|sam-s85h|amazon|5216.16",
+    "type": "new_low",
+    "modelId": "sam-s85h",
+    "store": "amazon",
+    "previousPrice": 5399.91,
+    "newPrice": 5216.16,
+    "savingsPct": 3.4,
+    "at": "2026-11-03T20:22:31-03:00",
+    "url": "https://www.amazon.com.br/dp/B0H7YPY854",
+    "note": "Novo menor preço registrado"
   }
 ]
