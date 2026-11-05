@@ -154,5 +154,29 @@
     "at": "2026-11-03T20:22:31-03:00",
     "url": "https://www.amazon.com.br/dp/B0H7YPY854",
     "note": "Novo menor preço registrado"
+  },
+  {
+    "key": "new_low|tcl-c6k|amazon|2399",
+    "type": "new_low",
+    "modelId": "tcl-c6k",
+    "store": "amazon",
+    "previousPrice": 2944.05,
+    "newPrice": 2399,
+    "savingsPct": 18.5,
+    "at": "2026-11-05T20:14:08-03:00",
+    "url": "https://www.amazon.com.br/dp/B0F7JZMVKF",
+    "note": "Novo menor preço registrado"
+  },
+  {
+    "key": "drop|tcl-c6k|amazon|2399",
+    "type": "drop",
+    "modelId": "tcl-c6k",
+    "store": "amazon",
+    "previousPrice": 3006.03,
+    "newPrice": 2399,
+    "savingsPct": 20.2,
+    "at": "2026-11-05T20:14:08-03:00",
+    "url": "https://www.amazon.com.br/dp/B0F7JZMVKF",
+    "note": "Queda de 20.2% desde a consulta anterior"
   }
 ]
