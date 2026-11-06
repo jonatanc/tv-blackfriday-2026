@@ -178,5 +178,17 @@
     "at": "2026-11-05T20:14:08-03:00",
     "url": "https://www.amazon.com.br/dp/B0F7JZMVKF",
     "note": "Queda de 20.2% desde a consulta anterior"
+  },
+  {
+    "key": "drop|lg-c6|fastshop|6199",
+    "type": "drop",
+    "modelId": "lg-c6",
+    "store": "fastshop",
+    "previousPrice": 6799,
+    "newPrice": 6199,
+    "savingsPct": 8.8,
+    "at": "2026-11-06T20:08:25-03:00",
+    "url": "https://site.fastshop.com.br/smart-tv-4k-lg-oled-55--polegadas-evo-ai-com-dolby-vision--dolby-atmos-e-google-cast---oled55c6psa-lgoled55c6pto_prd-173934/p",
+    "note": "Queda de 8.8% desde a consulta anterior"
   }
 ]
