@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-11-08T11:13:38.933Z",
+  "generatedAt": "2026-11-08T23:12:58.704Z",
   "lastRun": {
-    "runId": "2026-11-08T08",
+    "runId": "2026-11-08T20",
     "status": "partial",
-    "finishedAt": "2026-11-08T08:13:38-03:00",
-    "period": "manhã"
+    "finishedAt": "2026-11-08T20:20:00-03:00",
+    "period": "noite"
   },
   "nextRuns": [
-    "2026-11-08T20:00:00-03:00",
-    "2026-11-09T08:00:00-03:00"
+    "2026-11-09T08:00:00-03:00",
+    "2026-11-09T20:00:00-03:00"
   ],
   "endsAt": "2026-11-27T23:59:00-03:00",
   "cheapestNow": {
@@ -18,7 +18,7 @@
     "store": "amazon",
     "seller": "TCLSEMP",
     "url": "https://www.amazon.com.br/dp/B0F7JZMVKF",
-    "checkedAt": "2026-11-08T08:13:38-03:00",
+    "checkedAt": "2026-11-08T20:20:00-03:00",
     "coupon": null,
     "promoEndsAt": null,
     "code": "55C6K"
@@ -58,12 +58,12 @@
       },
       "stats": {
         "current": {
-          "price": 6199,
+          "price": 5984.13,
           "usedInstallments": false,
-          "store": "fastshop",
-          "seller": "Fast Shop",
-          "url": "https://site.fastshop.com.br/smart-tv-4k-lg-oled-55--polegadas-evo-ai-com-dolby-vision--dolby-atmos-e-google-cast---oled55c6psa-lgoled55c6pto_prd-173934/p",
-          "checkedAt": "2026-11-08T08:13:38-03:00",
+          "store": "amazon",
+          "seller": "Magalu",
+          "url": "https://www.amazon.com.br/dp/B0H4HKXMFH",
+          "checkedAt": "2026-11-08T20:20:00-03:00",
           "coupon": null,
           "promoEndsAt": null,
           "code": "OLED55C6PSA"
@@ -74,13 +74,13 @@
           "store": "fastshop",
           "seller": "Fast Shop",
           "url": "https://site.fastshop.com.br/smart-tv-4k-lg-oled-55--polegadas-evo-ai-com-dolby-vision--dolby-atmos-e-google-cast---oled55c6psa-lgoled55c6pto_prd-173934/p",
-          "checkedAt": "2026-11-07T20:08:39-03:00",
+          "checkedAt": "2026-11-08T08:13:38-03:00",
           "coupon": null,
           "promoEndsAt": null,
           "code": "OLED55C6PSA"
         },
-        "changeAbs": 0,
-        "changePct": 0,
+        "changeAbs": -214.87,
+        "changePct": -3.5,
         "sysMin": {
           "price": 5959.9,
           "date": "2026-11-03",
@@ -91,17 +91,17 @@
           "date": "2026-10-30",
           "store": "mercadolivre"
         },
-        "mean": 6487.14,
+        "mean": 6459.19,
         "min30": 5959.9,
         "min90": 5959.9,
-        "savingsVsMeanPct": 4.4,
+        "savingsVsMeanPct": 7.4,
         "stale": false,
-        "runsWithOffer": 17
+        "runsWithOffer": 18
       },
       "classification": {
         "level": "wait",
         "reference": 5699,
-        "diffPct": 8.8
+        "diffPct": 5
       },
       "series": [
         {
@@ -424,14 +424,14 @@
         },
         {
           "date": "2026-11-08",
-          "store": "fastshop",
-          "price": 6199,
+          "store": "amazon",
+          "price": 5984.13,
           "newMin": false
         },
         {
           "date": "2026-11-08",
-          "store": "amazon",
-          "price": 6649.05,
+          "store": "fastshop",
+          "price": 6199,
           "newMin": false
         },
         {
@@ -462,11 +462,11 @@
           "offer": {
             "title": "Smart TV LG OLED evo AI 4K C6 55 polegadas 2026",
             "code": "OLED55C6PSA",
-            "seller": "Amazon.com.br",
-            "pricePix": 6649.05,
-            "priceInstallments": 6999,
+            "seller": "Magalu",
+            "pricePix": 5984.13,
+            "priceInstallments": 6649.05,
             "installments": 12,
-            "shipping": 0,
+            "shipping": 49.9,
             "inStock": true,
             "coupon": null,
             "promoEndsAt": null,
@@ -475,7 +475,7 @@
               "httpStatus": 200,
               "codeMatched": true
             },
-            "checkedAt": "2026-11-08T08:13:38-03:00",
+            "checkedAt": "2026-11-08T20:20:00-03:00",
             "url": "https://www.amazon.com.br/dp/B0H4HKXMFH"
           }
         },
@@ -500,7 +500,7 @@
               "httpStatus": 200,
               "codeMatched": true
             },
-            "checkedAt": "2026-11-08T08:13:38-03:00",
+            "checkedAt": "2026-11-08T20:20:00-03:00",
             "url": "https://www.magazineluiza.com.br/smart-tv-55-lg-4k-uhd-oled-evo-ai-oled55c6psa-webos-26-2026/p/241766200/et/elit/"
           }
         },
@@ -520,12 +520,12 @@
             "inStock": false,
             "coupon": null,
             "promoEndsAt": null,
-            "warranty": null,
+            "warranty": "12 meses",
             "linkCheck": {
               "httpStatus": 200,
               "codeMatched": true
             },
-            "checkedAt": "2026-11-08T08:13:38-03:00",
+            "checkedAt": "2026-11-08T20:20:00-03:00",
             "url": "https://www.casasbahia.com.br/smart-tv-oled55c6psa-55-oled-4k-webos-lg/p/1582945349"
           }
         },
@@ -550,7 +550,7 @@
               "httpStatus": 200,
               "codeMatched": true
             },
-            "checkedAt": "2026-11-08T08:13:38-03:00",
+            "checkedAt": "2026-11-08T20:20:00-03:00",
             "url": "https://site.fastshop.com.br/smart-tv-4k-lg-oled-55--polegadas-evo-ai-com-dolby-vision--dolby-atmos-e-google-cast---oled55c6psa-lgoled55c6pto_prd-173934/p"
           }
         },
@@ -558,7 +558,7 @@
           "modelId": "lg-c6",
           "store": "kabum",
           "status": "not_queryable",
-          "reason": "KaBuM: listagem com preços que divergiram da página do produto nas coletas anteriores; leitura de página não concluída nesta execução, sem dado confiável"
+          "reason": "KaBuM: não verificado nesta execução (listagem com preços divergentes da página do produto em coletas anteriores), sem dado confiável"
         },
         {
           "modelId": "lg-c6",
@@ -576,12 +576,12 @@
             "inStock": true,
             "coupon": null,
             "promoEndsAt": null,
-            "warranty": null,
+            "warranty": "12 meses",
             "linkCheck": {
               "httpStatus": 200,
               "codeMatched": true
             },
-            "checkedAt": "2026-11-08T08:13:38-03:00",
+            "checkedAt": "2026-11-08T20:20:00-03:00",
             "url": "https://www.carrefour.com.br/produto/smart-tv-lg-55-polegadas-oled-evo-ai-4k-c6-oled55c6psa-2026-340264956"
           }
         },
@@ -589,7 +589,7 @@
           "modelId": "lg-c6",
           "store": "mercadolivre",
           "status": "not_queryable",
-          "reason": "Mercado Livre: listagem sem URL de produto limpa (links com rastreio); loja oficial/MercadoLíder não confirmada na página do produto"
+          "reason": "Mercado Livre: não verificado nesta execução (listagem sem URL limpa e sem confirmação de loja oficial/MercadoLíder)"
         },
         {
           "modelId": "lg-c6",
@@ -597,7 +597,7 @@
           "status": "ok",
           "reason": null,
           "offer": {
-            "title": "Smart TV LG OLED evo AI 4K C6 55 polegadas 2026",
+            "title": "Smart TV LG OLED evo C6 55\" 4K com AI - OLED55C6PSA",
             "code": "OLED55C6PSA",
             "seller": "LG Brasil",
             "pricePix": 6934.05,
@@ -612,7 +612,7 @@
               "httpStatus": 200,
               "codeMatched": true
             },
-            "checkedAt": "2026-11-08T08:13:38-03:00",
+            "checkedAt": "2026-11-08T20:20:00-03:00",
             "url": "https://www.lg.com/br/tvs-e-soundbars/oled-evo/oled55c6psa/"
           }
         }
@@ -750,45 +750,45 @@
               "httpStatus": 200,
               "codeMatched": true
             },
-            "checkedAt": "2026-11-08T08:13:38-03:00",
+            "checkedAt": "2026-11-08T20:20:00-03:00",
             "url": "https://www.amazon.com.br/dp/B0FKDXHGM6"
           }
         },
         {
           "modelId": "sam-s85f",
           "store": "magalu",
-          "status": "not_queryable",
-          "reason": "Busca por QN55S85FAGXZD sem resultado de produto legível nesta execução"
+          "status": "not_found",
+          "reason": "Busca por QN55S85FAGXZD no Magalu retornou apenas acessórios, sem a TV"
         },
         {
           "modelId": "sam-s85f",
           "store": "casasbahia",
-          "status": "not_queryable",
-          "reason": "Casas Bahia: \"Ops! Algo deu errado\" na busca"
+          "status": "not_found",
+          "reason": "Busca por QN55S85FAGXZD: nenhum produto encontrado"
         },
         {
           "modelId": "sam-s85f",
           "store": "fastshop",
           "status": "not_queryable",
-          "reason": "Busca da Fast Shop retornou \"Página não encontrada\""
+          "reason": "Fast Shop: URL de busca retornou 'Página não encontrada'; sem leitura do produto"
         },
         {
           "modelId": "sam-s85f",
           "store": "kabum",
           "status": "not_queryable",
-          "reason": "KaBuM: listagem com preços que divergiram da página do produto nas coletas anteriores; leitura de página não concluída nesta execução, sem dado confiável"
+          "reason": "KaBuM: não verificado nesta execução (listagem com preços divergentes da página do produto em coletas anteriores), sem dado confiável"
         },
         {
           "modelId": "sam-s85f",
           "store": "carrefour",
           "status": "not_found",
-          "reason": "Busca por QN55S85FAGXZD: sem resultados"
+          "reason": "Modelo não encontrado na última verificação; não revisitado nesta execução"
         },
         {
           "modelId": "sam-s85f",
           "store": "mercadolivre",
           "status": "not_queryable",
-          "reason": "Mercado Livre: listagem sem URL de produto limpa (links com rastreio); loja oficial/MercadoLíder não confirmada na página do produto"
+          "reason": "Mercado Livre: não verificado nesta execução (listagem sem URL limpa e sem confirmação de loja oficial/MercadoLíder)"
         },
         {
           "modelId": "sam-s85f",
@@ -811,7 +811,7 @@
               "httpStatus": 200,
               "codeMatched": true
             },
-            "checkedAt": "2026-11-08T08:13:38-03:00",
+            "checkedAt": "2026-11-08T20:20:00-03:00",
             "url": "https://www.samsung.com/br/tvs/oled-tv/s85f-55-inch-oled-4k-smart-tv-qn55s85fagxzd/"
           }
         }
@@ -850,11 +850,11 @@
           "usedInstallments": false,
           "store": "magalu",
           "seller": "Lojas TaQi",
-          "url": "https://www.magazineluiza.com.br/smart-tv-55-samsung-oled-vision-ai-4k-s85h-2027/p/eg6e845f46/et/elit/?seller_id=lojastaqi",
-          "checkedAt": "2026-11-08T08:13:38-03:00",
+          "url": "https://www.magazineluiza.com.br/smart-tv-55-samsung-oled-vision-ai-4k-s85h-2027/p/eg6e845f46/et/elit/",
+          "checkedAt": "2026-11-08T20:20:00-03:00",
           "coupon": null,
           "promoEndsAt": null,
-          "code": "QN55S85HAEXZD"
+          "code": "S85H"
         },
         "previous": {
           "price": 5250.65,
@@ -862,10 +862,10 @@
           "store": "magalu",
           "seller": "Lojas TaQi",
           "url": "https://www.magazineluiza.com.br/smart-tv-55-samsung-oled-vision-ai-4k-s85h-2027/p/eg6e845f46/et/elit/?seller_id=lojastaqi",
-          "checkedAt": "2026-11-07T20:08:39-03:00",
+          "checkedAt": "2026-11-08T08:13:38-03:00",
           "coupon": null,
           "promoEndsAt": null,
-          "code": "S85H"
+          "code": "QN55S85HAEXZD"
         },
         "changeAbs": 0,
         "changePct": 0,
@@ -879,12 +879,12 @@
           "date": "2026-10-30",
           "store": "carrefour"
         },
-        "mean": 5381.45,
+        "mean": 5374.18,
         "min30": 5216.16,
         "min90": 5216.16,
-        "savingsVsMeanPct": 2.4,
+        "savingsVsMeanPct": 2.3,
         "stale": false,
-        "runsWithOffer": 17
+        "runsWithOffer": 18
       },
       "classification": {
         "level": "good",
@@ -1244,11 +1244,11 @@
           "offer": {
             "title": "Samsung Vision AI TV 55\" OLED 4K S85H 26/2027",
             "code": "S85H",
-            "seller": "Amazon.com.br",
+            "seller": null,
             "pricePix": null,
             "priceInstallments": 5579.15,
             "installments": 12,
-            "shipping": 0,
+            "shipping": null,
             "inStock": true,
             "coupon": null,
             "promoEndsAt": null,
@@ -1257,7 +1257,7 @@
               "httpStatus": 200,
               "codeMatched": true
             },
-            "checkedAt": "2026-11-08T08:13:38-03:00",
+            "checkedAt": "2026-11-08T20:20:00-03:00",
             "url": "https://www.amazon.com.br/dp/B0H7YPY854"
           }
         },
@@ -1267,8 +1267,8 @@
           "status": "ok",
           "reason": null,
           "offer": {
-            "title": "Smart TV 55\" Samsung 4K UHD OLED S85H One UI Tizen QN55S85HAEXZD 2027",
-            "code": "QN55S85HAEXZD",
+            "title": "Smart TV 55\" Samsung OLED Vision AI 4K - S85H (2027)",
+            "code": "S85H",
             "seller": "Lojas TaQi",
             "pricePix": 5250.65,
             "priceInstallments": 5527,
@@ -1282,8 +1282,8 @@
               "httpStatus": 200,
               "codeMatched": true
             },
-            "checkedAt": "2026-11-08T08:13:38-03:00",
-            "url": "https://www.magazineluiza.com.br/smart-tv-55-samsung-oled-vision-ai-4k-s85h-2027/p/eg6e845f46/et/elit/?seller_id=lojastaqi"
+            "checkedAt": "2026-11-08T20:20:00-03:00",
+            "url": "https://www.magazineluiza.com.br/smart-tv-55-samsung-oled-vision-ai-4k-s85h-2027/p/eg6e845f46/et/elit/"
           }
         },
         {
@@ -1307,7 +1307,7 @@
               "httpStatus": 200,
               "codeMatched": true
             },
-            "checkedAt": "2026-11-08T08:13:38-03:00",
+            "checkedAt": "2026-11-08T20:20:00-03:00",
             "url": "https://www.casasbahia.com.br/samsung-vision-ai-tv-55-polegadas-oled-4k-s85h-2027/p/1582977542"
           }
         },
@@ -1332,7 +1332,7 @@
               "httpStatus": 200,
               "codeMatched": true
             },
-            "checkedAt": "2026-11-08T08:13:38-03:00",
+            "checkedAt": "2026-11-08T20:20:00-03:00",
             "url": "https://site.fastshop.com.br/samsung-vision-ai-tv-55--oled-4k-s85h-2027-sgqn55s85hgfp_prd-193679/p"
           }
         },
@@ -1340,7 +1340,7 @@
           "modelId": "sam-s85h",
           "store": "kabum",
           "status": "not_queryable",
-          "reason": "KaBuM: listagem com preços que divergiram da página do produto nas coletas anteriores; leitura de página não concluída nesta execução, sem dado confiável"
+          "reason": "KaBuM: não verificado nesta execução (listagem com preços divergentes da página do produto em coletas anteriores), sem dado confiável"
         },
         {
           "modelId": "sam-s85h",
@@ -1358,12 +1358,12 @@
             "inStock": true,
             "coupon": null,
             "promoEndsAt": null,
-            "warranty": null,
+            "warranty": "12 meses",
             "linkCheck": {
               "httpStatus": 200,
               "codeMatched": true
             },
-            "checkedAt": "2026-11-08T08:13:38-03:00",
+            "checkedAt": "2026-11-08T20:20:00-03:00",
             "url": "https://www.carrefour.com.br/produto/samsung-vision-ai-tv-55-oled-4k-s85h-2027-340590855"
           }
         },
@@ -1371,7 +1371,7 @@
           "modelId": "sam-s85h",
           "store": "mercadolivre",
           "status": "not_queryable",
-          "reason": "Mercado Livre: listagem sem URL de produto limpa (links com rastreio); loja oficial/MercadoLíder não confirmada na página do produto"
+          "reason": "Mercado Livre: não verificado nesta execução (listagem sem URL limpa e sem confirmação de loja oficial/MercadoLíder)"
         },
         {
           "modelId": "sam-s85h",
@@ -1379,7 +1379,7 @@
           "status": "ok",
           "reason": null,
           "offer": {
-            "title": "Smart TV Samsung Vision AI 55” OLED 4K S85H",
+            "title": "Smart TV Samsung Vision AI 55\" OLED 4K S85H 2026",
             "code": "QN55S85HAEXZD",
             "seller": "Samsung",
             "pricePix": 5556.55,
@@ -1394,7 +1394,7 @@
               "httpStatus": 200,
               "codeMatched": true
             },
-            "checkedAt": "2026-11-08T08:13:38-03:00",
+            "checkedAt": "2026-11-08T20:20:00-03:00",
             "url": "https://www.samsung.com/br/tvs/oled-tv/s85h-55-inch-4k-smart-tv-qn55s85haexzd/"
           }
         }
@@ -1438,7 +1438,7 @@
           "store": "amazon",
           "seller": "TCLSEMP",
           "url": "https://www.amazon.com.br/dp/B0F7JZMVKF",
-          "checkedAt": "2026-11-08T08:13:38-03:00",
+          "checkedAt": "2026-11-08T20:20:00-03:00",
           "coupon": null,
           "promoEndsAt": null,
           "code": "55C6K"
@@ -1449,7 +1449,7 @@
           "store": "amazon",
           "seller": "TCLSEMP",
           "url": "https://www.amazon.com.br/dp/B0F7JZMVKF",
-          "checkedAt": "2026-11-07T20:08:39-03:00",
+          "checkedAt": "2026-11-08T08:13:38-03:00",
           "coupon": null,
           "promoEndsAt": null,
           "code": "55C6K"
@@ -1466,12 +1466,12 @@
           "date": "2026-10-30",
           "store": "kabum"
         },
-        "mean": 2983.77,
+        "mean": 2989.62,
         "min30": 2399,
         "min90": 2399,
-        "savingsVsMeanPct": -3.5,
+        "savingsVsMeanPct": -3.3,
         "stale": false,
-        "runsWithOffer": 17
+        "runsWithOffer": 18
       },
       "classification": {
         "level": "wait",
@@ -1877,6 +1877,12 @@
         },
         {
           "date": "2026-11-08",
+          "store": "casasbahia",
+          "price": 3358.7,
+          "newMin": false
+        },
+        {
+          "date": "2026-11-08",
           "store": "tcl",
           "price": 3541.91,
           "newMin": false
@@ -1904,7 +1910,7 @@
               "httpStatus": 200,
               "codeMatched": true
             },
-            "checkedAt": "2026-11-08T08:13:38-03:00",
+            "checkedAt": "2026-11-08T20:20:00-03:00",
             "url": "https://www.amazon.com.br/dp/B0F7JZMVKF"
           }
         },
@@ -1914,7 +1920,7 @@
           "status": "ok",
           "reason": null,
           "offer": {
-            "title": "Smart TV 4K TCL QD-Mini LED 55” 55C6K",
+            "title": "Smart TV 4K TCL QD-Mini LED 55” - 55C6K",
             "code": "55C6K",
             "seller": "Fast Shop",
             "pricePix": 3089.88,
@@ -1929,15 +1935,34 @@
               "httpStatus": 200,
               "codeMatched": true
             },
-            "checkedAt": "2026-11-08T08:13:38-03:00",
+            "checkedAt": "2026-11-08T20:20:00-03:00",
             "url": "https://www.magazineluiza.com.br/smart-tv-4k-tcl-qd-mini-led-55-polegadas-com-hdmi-2-1-dolby-vision-subwoofer-144hz-vrr-e-wi-fi-55c6k/p/kb7d86eh39/et/elit/?seller_id=fastshop2"
           }
         },
         {
           "modelId": "tcl-c6k",
           "store": "casasbahia",
-          "status": "not_queryable",
-          "reason": "Casas Bahia: página do produto retornou \"Ops! Algo deu errado\""
+          "status": "ok",
+          "reason": null,
+          "offer": {
+            "title": "Smart TV 4K TCL QD-Mini LED 55” Polegadas - 55C6K",
+            "code": "55C6K",
+            "seller": "FAST SHOP",
+            "pricePix": null,
+            "priceInstallments": 3358.7,
+            "installments": 6,
+            "shipping": null,
+            "inStock": true,
+            "coupon": null,
+            "promoEndsAt": null,
+            "warranty": null,
+            "linkCheck": {
+              "httpStatus": 200,
+              "codeMatched": true
+            },
+            "checkedAt": "2026-11-08T20:20:00-03:00",
+            "url": "https://www.casasbahia.com.br/smart-tv-4k-tcl-qd-mini-led-55-polegadas-com-hdmi-21-dolby-vision-iq-subwoofer-144hz-vrr-e-wi-fi-55c6k/p/1576328105"
+          }
         },
         {
           "modelId": "tcl-c6k",
@@ -1945,7 +1970,7 @@
           "status": "ok",
           "reason": null,
           "offer": {
-            "title": "Smart TV 4K TCL QD-Mini LED 55” 55C6K",
+            "title": "Smart TV 4K TCL QD-Mini LED 55” Polegadas - 55C6K",
             "code": "55C6K",
             "seller": "Fast Shop",
             "pricePix": 3099,
@@ -1960,7 +1985,7 @@
               "httpStatus": 200,
               "codeMatched": true
             },
-            "checkedAt": "2026-11-08T08:13:38-03:00",
+            "checkedAt": "2026-11-08T20:20:00-03:00",
             "url": "https://site.fastshop.com.br/smart-tv-4k-tcl-qd-mini-led-55%E2%80%9D-polegadas-com-hdmi-2-1--dolby-vision-iq--subwoofer--144hz-vrr-e-wi-fi---55c6k-tk55c6kpto_prd-121394/p"
           }
         },
@@ -1968,7 +1993,7 @@
           "modelId": "tcl-c6k",
           "store": "kabum",
           "status": "not_queryable",
-          "reason": "KaBuM: listagem com preços que divergiram da página do produto nas coletas anteriores; leitura de página não concluída nesta execução, sem dado confiável"
+          "reason": "KaBuM: não verificado nesta execução (listagem com preços divergentes da página do produto em coletas anteriores), sem dado confiável"
         },
         {
           "modelId": "tcl-c6k",
@@ -1976,7 +2001,7 @@
           "status": "ok",
           "reason": null,
           "offer": {
-            "title": "Smart Tv 4k Tcl Qd-mini Led 55 Polegadas 55c6k",
+            "title": "Smart Tv 4k Tcl Qd-mini Led 55 Polegadas - 55c6k",
             "code": "55C6K",
             "seller": "Fast Shop",
             "pricePix": 3349.68,
@@ -1991,7 +2016,7 @@
               "httpStatus": 200,
               "codeMatched": true
             },
-            "checkedAt": "2026-11-08T08:13:38-03:00",
+            "checkedAt": "2026-11-08T20:20:00-03:00",
             "url": "https://www.carrefour.com.br/produto/smart-tv-4k-tcl-qd-mini-led-55-polegadas-com-hdmi-21-dolby-vision-iq-subwoofer-144hz-vrr-e-wi-fi-55c6k-335678055"
           }
         },
@@ -1999,7 +2024,7 @@
           "modelId": "tcl-c6k",
           "store": "mercadolivre",
           "status": "not_queryable",
-          "reason": "Mercado Livre: listagem sem URL de produto limpa (links com rastreio); loja oficial/MercadoLíder não confirmada na página do produto"
+          "reason": "Mercado Livre: não verificado nesta execução (listagem sem URL limpa e sem confirmação de loja oficial/MercadoLíder)"
         },
         {
           "modelId": "tcl-c6k",
@@ -2022,7 +2047,7 @@
               "httpStatus": 200,
               "codeMatched": true
             },
-            "checkedAt": "2026-11-08T08:13:38-03:00",
+            "checkedAt": "2026-11-08T20:20:00-03:00",
             "url": "https://www.lojatcl.com.br/smart-tv-tcl-55-polegadas-qled-mini-led-4k-c6k-wifi-bluetooth-google-tv-4-hdmi-144hz-hdr10-55c6k-32054/p"
           }
         }
@@ -2230,6 +2255,14 @@
     }
   ],
   "runsLog": [
+    {
+      "runId": "2026-11-08T20",
+      "status": "partial",
+      "trigger": "scheduled",
+      "okCount": 17,
+      "notQueryable": 9,
+      "notes": "KaBuM e Mercado Livre não verificados (sem leitura confiável). Fast Shop S85F: busca com erro. S85F sem estoque na Amazon e Samsung; LG Casas Bahia sem estoque. Pix não exibido em Amazon S85H/TCL e Casas Bahia (S85H/TCL). Amazon LG C6: Pix R$ 5.984,13 (10% off), frete R$ 49,90, vendido por Magalu. Cupons não registrados."
+    },
     {
       "runId": "2026-11-08T08",
       "status": "partial",
