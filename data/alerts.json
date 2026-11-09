@@ -190,5 +190,29 @@
     "at": "2026-11-06T20:08:25-03:00",
     "url": "https://site.fastshop.com.br/smart-tv-4k-lg-oled-55--polegadas-evo-ai-com-dolby-vision--dolby-atmos-e-google-cast---oled55c6psa-lgoled55c6pto_prd-173934/p",
     "note": "Queda de 8.8% desde a consulta anterior"
+  },
+  {
+    "key": "coupon|lg-c6|magalu|6649.05",
+    "type": "coupon",
+    "modelId": "lg-c6",
+    "store": "magalu",
+    "previousPrice": null,
+    "newPrice": 6649.05,
+    "savingsPct": null,
+    "at": "2026-11-09T08:08:35-03:00",
+    "url": "https://www.magazineluiza.com.br/smart-tv-55-lg-4k-uhd-oled-evo-ai-oled55c6psa-webos-26-2026/p/241766200/et/elit/",
+    "note": "Cupom LU350: R$ 350 OFF"
+  },
+  {
+    "key": "drop|tcl-c6k|amazon|2932.81",
+    "type": "drop",
+    "modelId": "tcl-c6k",
+    "store": "amazon",
+    "previousPrice": 3089,
+    "newPrice": 2932.81,
+    "savingsPct": 5.1,
+    "at": "2026-11-09T08:08:35-03:00",
+    "url": "https://www.amazon.com.br/dp/B0F7JZMVKF",
+    "note": "Queda de 5.1% desde a consulta anterior"
   }
 ]
