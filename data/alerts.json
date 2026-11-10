@@ -214,5 +214,29 @@
     "at": "2026-11-09T08:08:35-03:00",
     "url": "https://www.amazon.com.br/dp/B0F7JZMVKF",
     "note": "Queda de 5.1% desde a consulta anterior"
+  },
+  {
+    "key": "new_low|lg-c6|amazon|5939.1",
+    "type": "new_low",
+    "modelId": "lg-c6",
+    "store": "amazon",
+    "previousPrice": 5959.9,
+    "newPrice": 5939.1,
+    "savingsPct": 0.3,
+    "at": "2026-11-10T20:40:00-03:00",
+    "url": "https://www.amazon.com.br/dp/B0H4HKXMFH",
+    "note": "Novo menor preço registrado"
+  },
+  {
+    "key": "drop|lg-c6|amazon|5939.1",
+    "type": "drop",
+    "modelId": "lg-c6",
+    "store": "amazon",
+    "previousPrice": 6299,
+    "newPrice": 5939.1,
+    "savingsPct": 5.7,
+    "at": "2026-11-10T20:40:00-03:00",
+    "url": "https://www.amazon.com.br/dp/B0H4HKXMFH",
+    "note": "Queda de 5.7% desde a consulta anterior"
   }
 ]
