@@ -2,7 +2,7 @@
 
 Dashboard público: **https://jonatanc.github.io/tv-blackfriday-2026/**
 
-Monitora LG OLED evo C6 (OLED55C6PSA), Samsung OLED S85F (QN55S85FAGXZD), Samsung OLED S85H (QN55S85HAEXZD) e TCL C6K (55C6K) em lojas brasileiras. As coletas acontecem às 08h e 20h (America/Sao_Paulo), de 30/10 a 27/11/2026.
+Monitora LG OLED evo C6 (OLED55C6PSA), Samsung OLED S85F (QN55S85FAGXZD), Samsung OLED S85H (QN55S85HAEXZD), TCL C6K (55C6K) e o fogão Brastemp BFS5GDR 110V (seção à parte) em lojas brasileiras. As coletas acontecem às 08h e 20h (America/Sao_Paulo), de 30/10 a 27/11/2026.
 
 ## Como funciona
 

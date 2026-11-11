@@ -7,11 +7,12 @@ const REFRESH_MS = 10 * 60 * 1000;
 const STORE_NAMES = {
   amazon: "Amazon", magalu: "Magazine Luiza", casasbahia: "Casas Bahia", fastshop: "Fast Shop",
   kabum: "KaBuM!", carrefour: "Carrefour", mercadolivre: "Mercado Livre",
-  lg: "Loja oficial LG", samsung: "Loja oficial Samsung", tcl: "Loja oficial TCL",
+  lg: "Loja oficial LG", samsung: "Loja oficial Samsung", tcl: "Loja oficial TCL", brastemp: "Loja oficial Brastemp",
 };
 // Cor segue a entidade (posição fixa); lojas oficiais compartilham o slot 8.
-const STORE_SLOT = { amazon: 1, magalu: 2, casasbahia: 3, fastshop: 4, kabum: 5, carrefour: 6, mercadolivre: 7, lg: 8, samsung: 8, tcl: 8 };
-const MODEL_SLOT = { "lg-c6": 1, "sam-s85f": 2, "sam-s85h": 3, "tcl-c6k": 4 };
+const STORE_SLOT = { amazon: 1, magalu: 2, casasbahia: 3, fastshop: 4, kabum: 5, carrefour: 6, mercadolivre: 7, lg: 8, samsung: 8, tcl: 8, brastemp: 8 };
+const MODEL_SLOT = { "lg-c6": 1, "sam-s85f": 2, "sam-s85h": 3, "tcl-c6k": 4, "brastemp-bfs5gdr": 5 };
+const isTv = (m) => (m.category ?? "tv") === "tv";
 const LEVELS = {
   excellent: "🟢 Excelente oportunidade", good: "🟡 Boa oportunidade",
   wait: "🔴 Aguardar", none: "⚪ Sem histórico suficiente",
@@ -125,39 +126,41 @@ function externalText(ext) {
 }
 
 function renderCards() {
-  const cards = DATA.models.map((m) => {
-    const s = m.stats;
-    const cur = s.current;
-    const initials = (m.brand ?? m.name).slice(0, 3).toUpperCase();
-    const img = m.image ? h("img", { src: m.image, alt: m.name, loading: "lazy", referrerpolicy: "no-referrer" }) : initials;
-    const imgBox = h("div", { class: "img" }, img);
-    if (m.image) imgBox.firstChild.addEventListener("error", () => imgBox.replaceChildren(initials));
-    const extLink = m.external?.verified && safeUrl(m.external.sourceUrl)
-      ? h("a", { href: m.external.sourceUrl, target: "_blank", rel: "noopener noreferrer", title: m.external.note ?? null }, externalText(m.external))
-      : externalText(m.external);
-    return h("article", { class: "card" },
-      imgBox,
-      h("h3", {}, m.name),
-      h("div", { class: "code" }, (m.fullCodes ?? [m.baseCode ?? m.id]).join(" · ")),
-      h("div", { class: "flags" },
-        h("span", { class: `badge ${m.classification.level}` }, LEVELS[m.classification.level]),
-        s.stale ? h("span", { class: "badge stale" }, "⚠ Preço desatualizado") : null,
-        cur?.usedInstallments ? h("span", { class: "badge none" }, "Pago no parcelado") : null),
-      h("div", { class: "price" }, cur ? money(cur.price) : "Sem oferta encontrada"),
-      h("div", { class: "note" }, cur ? `${STORE_NAMES[cur.store] ?? cur.store}${cur.seller && cur.seller !== cur.store ? " · vendido por " + cur.seller : ""}` : "Nenhuma loja com oferta válida na última coleta"),
-      h("dl", {},
-        h("dt", {}, "Variação desde a última consulta"), h("dd", {}, changeEl(s)),
-        h("dt", {}, "Menor histórico externo"), h("dd", {}, extLink),
-        h("dt", {}, "Menor registrado pelo sistema"), h("dd", {}, s.sysMin ? `${money(s.sysMin.price)} (${dayLabel(s.sysMin.date)})` : "—"),
-        h("dt", {}, "Menor 30 dias / 90 dias"), h("dd", {}, `${money(s.min30)} / ${money(s.min90)}`),
-        h("dt", {}, "Preço médio observado"), h("dd", {}, money(s.mean)),
-        h("dt", {}, "Economia vs. média"), h("dd", {}, pctFmt(s.savingsVsMeanPct)),
-        h("dt", {}, "Diferença vs. menor histórico externo"),
-        h("dd", {}, m.external?.verified && cur ? pctFmt(Math.round(((cur.price - m.external.lowest) / m.external.lowest) * 1000) / 10) : "—")),
-      offerLink(cur?.url),
-    );
-  });
-  document.getElementById("cards").replaceChildren(...cards);
+  document.getElementById("cards").replaceChildren(...DATA.models.filter(isTv).map(card));
+  document.getElementById("cards-fogao").replaceChildren(...DATA.models.filter((m) => !isTv(m)).map(card));
+}
+
+function card(m) {
+  const s = m.stats;
+  const cur = s.current;
+  const initials = (m.brand ?? m.name).slice(0, 3).toUpperCase();
+  const img = m.image ? h("img", { src: m.image, alt: m.name, loading: "lazy", referrerpolicy: "no-referrer" }) : initials;
+  const imgBox = h("div", { class: "img" }, img);
+  if (m.image) imgBox.firstChild.addEventListener("error", () => imgBox.replaceChildren(initials));
+  const extLink = m.external?.verified && safeUrl(m.external.sourceUrl)
+    ? h("a", { href: m.external.sourceUrl, target: "_blank", rel: "noopener noreferrer", title: m.external.note ?? null }, externalText(m.external))
+    : externalText(m.external);
+  return h("article", { class: "card" },
+    imgBox,
+    h("h3", {}, m.name),
+    h("div", { class: "code" }, (m.fullCodes ?? [m.baseCode ?? m.id]).join(" · ")),
+    h("div", { class: "flags" },
+      h("span", { class: `badge ${m.classification.level}` }, LEVELS[m.classification.level]),
+      s.stale ? h("span", { class: "badge stale" }, "⚠ Preço desatualizado") : null,
+      cur?.usedInstallments ? h("span", { class: "badge none" }, "Pago no parcelado") : null),
+    h("div", { class: "price" }, cur ? money(cur.price) : "Sem oferta encontrada"),
+    h("div", { class: "note" }, cur ? `${STORE_NAMES[cur.store] ?? cur.store}${cur.seller && cur.seller !== cur.store ? " · vendido por " + cur.seller : ""}` : "Nenhuma loja com oferta válida na última coleta"),
+    h("dl", {},
+      h("dt", {}, "Variação desde a última consulta"), h("dd", {}, changeEl(s)),
+      h("dt", {}, "Menor histórico externo"), h("dd", {}, extLink),
+      h("dt", {}, "Menor registrado pelo sistema"), h("dd", {}, s.sysMin ? `${money(s.sysMin.price)} (${dayLabel(s.sysMin.date)})` : "—"),
+      h("dt", {}, "Menor 30 dias / 90 dias"), h("dd", {}, `${money(s.min30)} / ${money(s.min90)}`),
+      h("dt", {}, "Preço médio observado"), h("dd", {}, money(s.mean)),
+      h("dt", {}, "Economia vs. média"), h("dd", {}, pctFmt(s.savingsVsMeanPct)),
+      h("dt", {}, "Diferença vs. menor histórico externo"),
+      h("dd", {}, m.external?.verified && cur ? pctFmt(Math.round(((cur.price - m.external.lowest) / m.external.lowest) * 1000) / 10) : "—")),
+    offerLink(cur?.url),
+  );
 }
 
 function renderRanking() {
@@ -230,8 +233,9 @@ function drawChart(key, canvasId, labels, datasets) {
 
 function renderCharts() {
   // 1) Melhor preço do dia por TV
-  const allDates = [...new Set(DATA.models.flatMap((m) => m.series.map((p) => p.date)))].filter(inRange).sort();
-  const modelSets = DATA.models
+  const tvs = DATA.models.filter(isTv);
+  const allDates = [...new Set(tvs.flatMap((m) => m.series.map((p) => p.date)))].filter(inRange).sort();
+  const modelSets = tvs
     .filter((m) => m.series.length)
     .map((m) => {
       const byDate = new Map();

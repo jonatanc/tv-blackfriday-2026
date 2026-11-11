@@ -42,6 +42,7 @@ export function buildDashboard({ models, external, runs, alerts, now }) {
     const lastWithModel = [...valid].reverse().find((r) => r.checks.some((c) => c.modelId === model.id));
     return {
       ...model,
+      category: model.category ?? "tv",
       modelId: model.id,
       external: ext,
       stats,
@@ -51,7 +52,9 @@ export function buildDashboard({ models, external, runs, alerts, now }) {
     };
   });
 
-  const withPrice = entries.filter((e) => e.stats.current);
+  // "Mais barata agora" e o ranking comparam só TVs entre si; outras categorias têm seção própria.
+  const tvs = entries.filter((e) => e.category === "tv");
+  const withPrice = tvs.filter((e) => e.stats.current);
   const cheapest = withPrice.length
     ? withPrice.reduce((a, b) => (b.stats.current.price < a.stats.current.price ? b : a))
     : null;
@@ -65,7 +68,7 @@ export function buildDashboard({ models, external, runs, alerts, now }) {
     endsAt: ENDS_AT,
     cheapestNow: cheapest ? { modelId: cheapest.id, ...cheapest.stats.current } : null,
     models: entries,
-    ranking: rankModels(entries).map((e) => e.id),
+    ranking: rankModels(tvs).map((e) => e.id),
     alerts: allAlerts,
     runsLog: [...sorted].reverse().map((r) => ({
       runId: r.runId,

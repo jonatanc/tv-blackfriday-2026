@@ -5,13 +5,22 @@
     "brand": "LG",
     "year": 2026,
     "baseCode": "OLED55C6",
-    "fullCodes": ["OLED55C6PSA"],
+    "fullCodes": [
+      "OLED55C6PSA"
+    ],
     "image": "https://www.lg.com/content/dam/channel/wcms/br/images/promocoes/2026/tv-av/oledc6/oled83c6/imagens-galeria-v2/baisc-450--OLED55C6-e-Grab.png",
     "officialStore": "lg",
     "officialUrl": null,
-    "searchTerms": ["OLED55C6PSA", "LG OLED evo C6 55"],
-    "codeSources": ["https://www.buscape.com.br/tv/smart-tv-oled-evo-55-lg-4k-hdr-oled55c6psa", "https://www.casasbahia.com.br/smart-tv-oled55c6psa-55-oled-4k-webos-lg/p/1582945349"],
-    "notes": "OLED55C6PUA (EUA) e OLED55C6PLA (Índia) são outras versões regionais: não aceitar."
+    "searchTerms": [
+      "OLED55C6PSA",
+      "LG OLED evo C6 55"
+    ],
+    "codeSources": [
+      "https://www.buscape.com.br/tv/smart-tv-oled-evo-55-lg-4k-hdr-oled55c6psa",
+      "https://www.casasbahia.com.br/smart-tv-oled55c6psa-55-oled-4k-webos-lg/p/1582945349"
+    ],
+    "notes": "OLED55C6PUA (EUA) e OLED55C6PLA (Índia) são outras versões regionais: não aceitar.",
+    "category": "tv"
   },
   {
     "id": "sam-s85f",
@@ -19,13 +28,22 @@
     "brand": "Samsung",
     "year": 2025,
     "baseCode": "55S85F",
-    "fullCodes": ["QN55S85FAGXZD"],
+    "fullCodes": [
+      "QN55S85FAGXZD"
+    ],
     "image": "https://www.oficinadanet.com.br/media/obj_item/2246/381/s85f.jpg",
     "officialStore": "samsung",
     "officialUrl": null,
-    "searchTerms": ["QN55S85FAGXZD", "Samsung OLED S85F 55"],
-    "codeSources": ["https://www.oficinadanet.com.br/smarttvs/samsung-oled-s85f-55", "https://www.buscape.com.br/tv/smart-tv-oled-55-samsung-4k-55s85fagxzd"],
-    "notes": "Não confundir com S85H (2026) nem com S90F."
+    "searchTerms": [
+      "QN55S85FAGXZD",
+      "Samsung OLED S85F 55"
+    ],
+    "codeSources": [
+      "https://www.oficinadanet.com.br/smarttvs/samsung-oled-s85f-55",
+      "https://www.buscape.com.br/tv/smart-tv-oled-55-samsung-4k-55s85fagxzd"
+    ],
+    "notes": "Não confundir com S85H (2026) nem com S90F.",
+    "category": "tv"
   },
   {
     "id": "sam-s85h",
@@ -33,13 +51,21 @@
     "brand": "Samsung",
     "year": 2026,
     "baseCode": "55S85H",
-    "fullCodes": ["QN55S85HAEXZD"],
+    "fullCodes": [
+      "QN55S85HAEXZD"
+    ],
     "image": "https://images.samsung.com/is/image/samsung/p6pim/br/qn55s85haexzd/gallery/br-oled-s85h-qn55s85haexzd-554492523",
     "officialStore": "samsung",
     "officialUrl": null,
-    "searchTerms": ["QN55S85HAEXZD", "Samsung OLED S85H 55"],
-    "codeSources": ["https://shop.samsung.com/br/tv-e-audio/tv/oled-4k"],
-    "notes": "Loja Samsung BR vende como 'Vision AI TV 55\" OLED 4K S85H 26/2027'. QN55S85HAEXZA (EUA), QE55S85H (Europa) não são aceitos. Combos com soundbar são descartados (preço não comparável)."
+    "searchTerms": [
+      "QN55S85HAEXZD",
+      "Samsung OLED S85H 55"
+    ],
+    "codeSources": [
+      "https://shop.samsung.com/br/tv-e-audio/tv/oled-4k"
+    ],
+    "notes": "Loja Samsung BR vende como 'Vision AI TV 55\" OLED 4K S85H 26/2027'. QN55S85HAEXZA (EUA), QE55S85H (Europa) não são aceitos. Combos com soundbar são descartados (preço não comparável).",
+    "category": "tv"
   },
   {
     "id": "tcl-c6k",
@@ -47,12 +73,45 @@
     "brand": "TCL",
     "year": 2025,
     "baseCode": "55C6K",
-    "fullCodes": ["55C6K"],
+    "fullCodes": [
+      "55C6K"
+    ],
     "image": "https://www.oficinadanet.com.br/media/obj_item/2139/381/tclc6k55.jpg",
     "officialStore": "tcl",
     "officialUrl": null,
-    "searchTerms": ["TCL 55C6K", "TCL C6K 55 QD-Mini LED"],
-    "codeSources": ["https://www.oficinadanet.com.br/smarttvs/tcl-qd-mini-led-c6k-55", "https://www.buscape.com.br/tv/smart-tv-mini-led-55-tcl-4k-55c6k"],
-    "notes": "No Brasil o código é 55C6K sem sufixo. 55C6K Pro (2026) e 55C6KS são outros modelos: não aceitar."
+    "searchTerms": [
+      "TCL 55C6K",
+      "TCL C6K 55 QD-Mini LED"
+    ],
+    "codeSources": [
+      "https://www.oficinadanet.com.br/smarttvs/tcl-qd-mini-led-c6k-55",
+      "https://www.buscape.com.br/tv/smart-tv-mini-led-55-tcl-4k-55c6k"
+    ],
+    "notes": "No Brasil o código é 55C6K sem sufixo. 55C6K Pro (2026) e 55C6KS são outros modelos: não aceitar.",
+    "category": "tv"
+  },
+  {
+    "id": "brastemp-bfs5gdr",
+    "category": "fogao",
+    "name": "Fogão Brastemp 5 Bocas Inox com Turbo Chama (110V)",
+    "brand": "Brastemp",
+    "year": null,
+    "baseCode": "BFS5GDR",
+    "fullCodes": [
+      "BFS5GDR"
+    ],
+    "voltage": "110V",
+    "image": "https://brastemp.vtexassets.com/arquivos/ids/268690-1440-auto/01-Brastemp_Fogao_BFS5GDR_Imagem_Frontal_49.webp?v=638975225989200000&quality=80",
+    "officialStore": "brastemp",
+    "officialUrl": "https://www.brastemp.com.br/fogao-brastemp-5-bocas-cor-inox-com-turbo-chama-bfs5gdr-326126027/p",
+    "searchTerms": [
+      "BFS5GDR 110V",
+      "Fogão Brastemp 5 bocas inox turbo chama BFS5GDR"
+    ],
+    "codeSources": [
+      "https://www.brastemp.com.br/fogao-brastemp-5-bocas-cor-inox-com-turbo-chama-bfs5gdr/p",
+      "https://www.buscape.com.br/fogao/fogao-de-piso-brastemp-bfs5gdr-5-bocas-cor-inox-acendimento-automatico-grill"
+    ],
+    "notes": "Não é bivolt. Aceitar SOMENTE oferta com 110V (ou 127V, mesma rede) explícito no título ou na voltagem selecionada; 220V ou voltagem não indicada → rejected. Não confundir com BFS5PCR, BFD5VCR, BFD5NCR nem fogões de embutir/cooktop. Na loja Brastemp a variante 110V é a URL ...bfs5gdr-326126027/p."
   }
 ]

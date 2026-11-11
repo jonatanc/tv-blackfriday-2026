@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { buildDashboard, nextRuns } from "../scripts/lib/build.mjs";
-import { runs, LAST_CHECK } from "./fixtures/runs.mjs";
+import { runs, LAST_CHECK, makeRun, offer } from "./fixtures/runs.mjs";
 
 const models = ["lg-c6", "sam-s85f", "sam-s85h", "tcl-c6k"].map((id) => ({ id, name: id, image: null }));
 const external = Object.fromEntries(models.map((m) => [m.id, { verified: false, label: "Histórico externo não verificado" }]));
@@ -70,4 +70,18 @@ test("sem nenhuma execução o build não quebra", () => {
   assert.equal(data.lastRun, null);
   assert.deepEqual(newAlerts, []);
   assert.equal(data.models.length, 4);
+});
+
+test("fogão não entra em cheapestNow nem no ranking das TVs, mas aparece em models", () => {
+  const withStove = [...models, { id: "brastemp-bfs5gdr", name: "Fogão", category: "fogao", image: null }];
+  const stoveRun = makeRun("2026-11-02T21", [
+    offer("magalu", 2000, "2026-11-02T21:05:00-03:00", { modelId: "brastemp-bfs5gdr" }),
+  ]);
+  const { data } = buildDashboard({ models: withStove, external, runs: [...runs, stoveRun], alerts: [], now: LAST_CHECK });
+  assert.equal(data.cheapestNow.modelId, "lg-c6");
+  assert.ok(!data.ranking.includes("brastemp-bfs5gdr"));
+  const stove = data.models.find((m) => m.id === "brastemp-bfs5gdr");
+  assert.equal(stove.category, "fogao");
+  assert.equal(stove.stats.current.price, 2000);
+  assert.equal(data.models.find((m) => m.id === "lg-c6").category, "tv");
 });

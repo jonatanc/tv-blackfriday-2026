@@ -35,7 +35,7 @@ Se a extensão não responder (Chrome fechado ou extensão desconectada), grave 
 
 ## 3. Coleta: para cada modelo × cada loja
 
-Modelos: `lg-c6`, `sam-s85f`, `sam-s85h`, `tcl-c6k`.
+Produtos: todos os de `data/models.json`. Hoje são as TVs `lg-c6`, `sam-s85f`, `sam-s85h` e `tcl-c6k` e o fogão `brastemp-bfs5gdr` (categoria `fogao`).
 
 | loja | busca (troque `{q}` pelo `fullCode`; se não achar, por um `searchTerm`) |
 |---|---|
@@ -46,14 +46,15 @@ Modelos: `lg-c6`, `sam-s85f`, `sam-s85h`, `tcl-c6k`.
 | `kabum` | `https://www.kabum.com.br/busca/{q}` |
 | `carrefour` | `https://www.carrefour.com.br/busca/{q}` |
 | `mercadolivre` | `https://lista.mercadolivre.com.br/{q}` |
-| oficial (só para o modelo da marca) | `lg`: `https://www.lg.com/br/busca/?search={q}` · `samsung`: `https://www.samsung.com/br/search/?searchvalue={q}` · `tcl`: `https://www.tcl.com/br/pt/search?keyword={q}` |
+| oficial (só para o produto da marca, campo `officialStore`) | `lg`: `https://www.lg.com/br/busca/?search={q}` · `samsung`: `https://www.samsung.com/br/search/?searchvalue={q}` · `tcl`: `https://www.tcl.com/br/pt/search?keyword={q}` · `brastemp`: comece pelo `officialUrl` do produto (a variante 110V) |
 
-São 4 modelos × 8 lojas = 32 checks, um por par (loja, modelo). Em cada um, registre a melhor oferta válida encontrada:
+São 5 produtos × 8 lojas = 40 checks, um por par (loja, produto): as 7 varejistas mais a loja oficial do produto. Em cada um, registre a melhor oferta válida encontrada:
 
 1. Use `navigate` para a busca (ou para a URL da última execução), espere carregar (`computer` com `wait` de 2–3 s) e leia a página com `get_page_text`. Abra a **página do produto** do anúncio que corresponde ao modelo.
 2. Na página do produto, confirme **todos** estes pontos:
    - o título, a ficha ou o código mostram um dos `fullCodes`. Também vale o `baseCode`, se a página deixar claro que é 55" e do ano certo. Código listado em `notes` como "não aceitar" → `rejected`;
-   - tamanho 55";
+   - TVs: tamanho 55";
+   - **fogão (`voltage: "110V"`)**: a oferta precisa mostrar **110V ou 127V** (mesma rede) no título ou na voltagem selecionada. Se a página permite escolher a voltagem, selecione 110V antes de ler o preço. 220V ou voltagem não indicada → `rejected` com o motivo. Fogões de outros códigos (BFS5PCR, BFD5VCR, de embutir, cooktop) → `rejected`;
    - produto **novo** (não usado, recondicionado, vitrine nem open box);
    - vendido no Brasil com **garantia nacional** (não "importado"/"internacional");
    - não é combo com outro produto, como soundbar.

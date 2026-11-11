@@ -67,3 +67,10 @@ test("runId e checkedAt com formato inválido são erro", () => {
   assert.ok(errs.some((e) => e.includes("runId")));
   assert.ok(errs.some((e) => e.includes("checkedAt")));
 });
+
+test("fogão e loja oficial Brastemp são aceitos", () => {
+  const r = valid();
+  r.checks[0].modelId = "brastemp-bfs5gdr";
+  r.checks[0].store = "brastemp";
+  assert.deepEqual(validateRun(r), []);
+});

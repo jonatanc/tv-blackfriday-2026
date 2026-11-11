@@ -1,7 +1,7 @@
 // Validação de esquema de um snapshot de execução (data/runs/<runId>.json).
 
-export const MODEL_IDS = ["lg-c6", "sam-s85f", "sam-s85h", "tcl-c6k"];
-export const STORE_IDS = ["amazon", "magalu", "casasbahia", "fastshop", "kabum", "carrefour", "mercadolivre", "lg", "samsung", "tcl"];
+export const MODEL_IDS = ["lg-c6", "sam-s85f", "sam-s85h", "tcl-c6k", "brastemp-bfs5gdr"];
+export const STORE_IDS = ["amazon", "magalu", "casasbahia", "fastshop", "kabum", "carrefour", "mercadolivre", "lg", "samsung", "tcl", "brastemp"];
 const RUN_STATUS = ["ok", "partial", "failed"];
 const TRIGGERS = ["scheduled", "manual", "initial"];
 const CHECK_STATUS = ["ok", "out_of_stock", "not_found", "not_queryable", "rejected"];

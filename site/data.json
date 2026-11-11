@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T11:15:00.430Z",
+  "generatedAt": "2026-11-11T15:21:44.016Z",
   "lastRun": {
     "runId": "2026-11-11T08",
     "status": "partial",
@@ -45,6 +45,7 @@
         "https://www.casasbahia.com.br/smart-tv-oled55c6psa-55-oled-4k-webos-lg/p/1582945349"
       ],
       "notes": "OLED55C6PUA (EUA) e OLED55C6PLA (Índia) são outras versões regionais: não aceitar.",
+      "category": "tv",
       "modelId": "lg-c6",
       "external": {
         "verified": true,
@@ -723,6 +724,7 @@
         "https://www.buscape.com.br/tv/smart-tv-oled-55-samsung-4k-55s85fagxzd"
       ],
       "notes": "Não confundir com S85H (2026) nem com S90F.",
+      "category": "tv",
       "modelId": "sam-s85f",
       "external": {
         "verified": true,
@@ -921,6 +923,7 @@
         "https://shop.samsung.com/br/tv-e-audio/tv/oled-4k"
       ],
       "notes": "Loja Samsung BR vende como 'Vision AI TV 55\" OLED 4K S85H 26/2027'. QN55S85HAEXZA (EUA), QE55S85H (Europa) não são aceitos. Combos com soundbar são descartados (preço não comparável).",
+      "category": "tv",
       "modelId": "sam-s85h",
       "external": {
         "verified": false,
@@ -1588,6 +1591,7 @@
         "https://www.buscape.com.br/tv/smart-tv-mini-led-55-tcl-4k-55c6k"
       ],
       "notes": "No Brasil o código é 55C6K sem sufixo. 55C6K Pro (2026) e 55C6KS são outros modelos: não aceitar.",
+      "category": "tv",
       "modelId": "tcl-c6k",
       "external": {
         "verified": true,
@@ -2296,6 +2300,58 @@
           }
         }
       ]
+    },
+    {
+      "id": "brastemp-bfs5gdr",
+      "category": "fogao",
+      "name": "Fogão Brastemp 5 Bocas Inox com Turbo Chama (110V)",
+      "brand": "Brastemp",
+      "year": null,
+      "baseCode": "BFS5GDR",
+      "fullCodes": [
+        "BFS5GDR"
+      ],
+      "voltage": "110V",
+      "image": "https://brastemp.vtexassets.com/arquivos/ids/268690-1440-auto/01-Brastemp_Fogao_BFS5GDR_Imagem_Frontal_49.webp?v=638975225989200000&quality=80",
+      "officialStore": "brastemp",
+      "officialUrl": "https://www.brastemp.com.br/fogao-brastemp-5-bocas-cor-inox-com-turbo-chama-bfs5gdr-326126027/p",
+      "searchTerms": [
+        "BFS5GDR 110V",
+        "Fogão Brastemp 5 bocas inox turbo chama BFS5GDR"
+      ],
+      "codeSources": [
+        "https://www.brastemp.com.br/fogao-brastemp-5-bocas-cor-inox-com-turbo-chama-bfs5gdr/p",
+        "https://www.buscape.com.br/fogao/fogao-de-piso-brastemp-bfs5gdr-5-bocas-cor-inox-acendimento-automatico-grill"
+      ],
+      "notes": "Não é bivolt. Aceitar SOMENTE oferta com 110V (ou 127V, mesma rede) explícito no título ou na voltagem selecionada; 220V ou voltagem não indicada → rejected. Não confundir com BFS5PCR, BFD5VCR, BFD5NCR nem fogões de embutir/cooktop. Na loja Brastemp a variante 110V é a URL ...bfs5gdr-326126027/p.",
+      "modelId": "brastemp-bfs5gdr",
+      "external": {
+        "verified": false,
+        "label": "Histórico externo não verificado",
+        "note": "Buscapé mostra gráfico de histórico sem valor e data extraíveis; Escorrega o Preço bloqueou a leitura (403). Pesquisado em 11/11/2026.",
+        "checkedAt": "2026-11-11"
+      },
+      "stats": {
+        "current": null,
+        "previous": null,
+        "changeAbs": null,
+        "changePct": null,
+        "sysMin": null,
+        "sysMax": null,
+        "mean": null,
+        "min30": null,
+        "min90": null,
+        "savingsVsMeanPct": null,
+        "stale": false,
+        "runsWithOffer": 0
+      },
+      "classification": {
+        "level": "none",
+        "reference": null,
+        "diffPct": null
+      },
+      "series": [],
+      "latestChecks": []
     }
   ],
   "ranking": [

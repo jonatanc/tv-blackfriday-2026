@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Monitor TVs 55"</title>
-  <meta name="description" content="Monitoramento de preços de 4 TVs de 55 polegadas até a Black Friday 2026, com histórico, ranking de oportunidades e alertas.">
+  <title>Monitor de Preços</title>
+  <meta name="description" content="Monitoramento de preços de 4 TVs de 55 polegadas e de um fogão Brastemp até a Black Friday 2026, com histórico, ranking de oportunidades e alertas.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='6' width='26' height='17' rx='2' fill='%232a78d6'/%3E%3Crect x='12' y='25' width='8' height='2' rx='1' fill='%232a78d6'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="top">
     <div class="wrap">
-      <h1>TVs 55" · Black Friday 2026</h1>
+      <h1>Monitor de preços · Black Friday 2026</h1>
       <p class="sub">Preços coletados às 08h e 20h (Brasília) em lojas brasileiras. Nada é estimado: quando não há preço confirmado, o campo fica vazio.</p>
       <div class="meta" id="meta" aria-live="polite"></div>
     </div>
@@ -23,6 +23,12 @@
     <section aria-labelledby="h-cards">
       <h2 id="h-cards">As quatro TVs</h2>
       <div id="cards" class="cards"></div>
+    </section>
+
+    <section aria-labelledby="h-fogao">
+      <h2 id="h-fogao">Fogão para a mãe</h2>
+      <p class="note">Monitorado à parte das TVs: só ofertas da versão 110V contam.</p>
+      <div id="cards-fogao" class="cards"></div>
     </section>
 
     <section aria-labelledby="h-rank">
@@ -54,17 +60,17 @@
       <figure class="chart-card">
         <figcaption>
           Comparação entre lojas —
-          <label class="sr-only" for="model-select">TV</label>
+          <label class="sr-only" for="model-select">Produto</label>
           <select id="model-select"></select>
         </figcaption>
         <div id="model-stats" class="stat-row"></div>
-        <div class="chart-box"><canvas id="chart-stores" role="img" aria-label="Preço diário por loja da TV selecionada"></canvas></div>
+        <div class="chart-box"><canvas id="chart-stores" role="img" aria-label="Preço diário por loja do produto selecionado"></canvas></div>
         <p class="note">Linhas tracejadas: mínima, média e máxima registradas pelo sistema no período. Pontos maiores com anel: nova mínima.</p>
       </figure>
 
       <div class="table-wrap">
         <table id="stores-table">
-          <caption>Última consulta por loja da TV selecionada</caption>
+          <caption>Última consulta por loja do produto selecionado</caption>
           <thead><tr><th>Loja</th><th>Status</th><th class="num">Pix</th><th class="num">Parcelado</th><th>Frete</th><th>Cupom</th><th>Garantia</th><th></th></tr></thead>
           <tbody></tbody>
         </table>
