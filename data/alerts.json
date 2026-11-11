@@ -238,5 +238,41 @@
     "at": "2026-11-10T20:40:00-03:00",
     "url": "https://www.amazon.com.br/dp/B0H4HKXMFH",
     "note": "Queda de 5.7% desde a consulta anterior"
+  },
+  {
+    "key": "new_low|lg-c6|amazon|5609.15",
+    "type": "new_low",
+    "modelId": "lg-c6",
+    "store": "amazon",
+    "previousPrice": 5939.1,
+    "newPrice": 5609.15,
+    "savingsPct": 5.6,
+    "at": "2026-11-11T08:09:09-03:00",
+    "url": "https://www.amazon.com.br/dp/B0H4HKXMFH",
+    "note": "Novo menor preço registrado"
+  },
+  {
+    "key": "drop|lg-c6|amazon|5609.15",
+    "type": "drop",
+    "modelId": "lg-c6",
+    "store": "amazon",
+    "previousPrice": 5939.1,
+    "newPrice": 5609.15,
+    "savingsPct": 5.6,
+    "at": "2026-11-11T08:09:09-03:00",
+    "url": "https://www.amazon.com.br/dp/B0H4HKXMFH",
+    "note": "Queda de 5.6% desde a consulta anterior"
+  },
+  {
+    "key": "below_external|lg-c6|amazon|5609.15",
+    "type": "below_external",
+    "modelId": "lg-c6",
+    "store": "amazon",
+    "previousPrice": 5699,
+    "newPrice": 5609.15,
+    "savingsPct": 1.6,
+    "at": "2026-11-11T08:09:09-03:00",
+    "url": "https://www.amazon.com.br/dp/B0H4HKXMFH",
+    "note": "No ou abaixo do menor histórico externo (Promobit (Fast Shop))"
   }
 ]
